@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './Home.css';
+import Header from '../Header';
 
 
 export default class Home extends Component{
@@ -9,9 +11,17 @@ export default class Home extends Component{
     }
     render(){
         return(
-            <h1 className="bg-color">
-                Home Page
-            </h1>
+            <div className="flex justify-center home">
+                <Header />
+                <div className="main flex justify-center">
+                    <div className="feature">
+                    </div>
+                    <div className="normal">
+                    </div>
+                    <div className="normal">
+                    </div>
+                </div>
+            </div>
         )
     }
 

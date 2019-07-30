@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './Header.css';
+
 
 
 export default class Header extends Component{
@@ -10,10 +12,14 @@ export default class Header extends Component{
     }
     render(){
         return(
-            <div className="mh4 flex">
-                <Link className="no-underline pa3 white" to="/">Home</Link>
-                <Link className="no-underline pa3 white" to="/connect">Connect</Link>
-                <Link className="no-underline pa3 white" to="/Shop">Shop</Link>
+            <div className="flex justify-start container">
+                <div className="flex vertical-text">
+                    <Link className="no-underline ph3 nav" to="/connect">connect</Link>
+                    <Link className="no-underline ph3 nav" to="/shop">shop</Link>
+                    <Link className="no-underline ph3 nav" to="/print">print</Link>
+                    <Link className="no-underline ph3 nav" to="/">home</Link>
+                    <div className="line"></div>
+                </div>
             </div>
 
         )
