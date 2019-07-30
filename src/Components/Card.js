@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import './Card.css';
 
-export default class FeaturePic extends Component{
+export default class Card extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -10,7 +11,10 @@ export default class FeaturePic extends Component{
 
     render(){
         return(
-            <div > CONTENT</div>
+            <div className = "feature-card">
+
+             CONTENT
+            </div>
         )
     }
 

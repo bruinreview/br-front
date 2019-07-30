@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Home.css';
 import Header from '../Header';
+import Card from '../Components/Card' ;
 
 
 export default class Home extends Component{
@@ -15,10 +16,16 @@ export default class Home extends Component{
                 <Header />
                 <div className="main flex justify-center">
                     <div className="feature">
+                        <Card/>
+                        <Card/>
                     </div>
                     <div className="normal">
+                        <Card/>
+
                     </div>
                     <div className="normal">
+                        <Card/>
+
                     </div>
                 </div>
             </div>
