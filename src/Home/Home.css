@@ -5,18 +5,18 @@
 .main{
     margin-top: 40px;
     width: 85%;
-    background-color: #0A0A0A;
+    /* background-color: #0A0A0A; */
 }
 
 .feature{
     width:47%;
     height:100%;
     margin: 0 1% 0 1%;
-    background-color: #111;
+    /* background-color: #111; */
 }
 
 .normal{
     width:22.5%;
     margin: 0 1% 0 1%;
-    background-color: #111;
+    /* background-color: #111; */
 }

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Zoom, Fade} from 'react-reveal';
 import './Card.css';
 
 export default class Card extends Component{
@@ -11,10 +12,11 @@ export default class Card extends Component{
 
     render(){
         return(
+            <Fade>
             <div className = "feature-card">
 
-             CONTENT
             </div>
+            </Fade>
         )
     }
 
