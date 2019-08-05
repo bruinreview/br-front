@@ -10,15 +10,14 @@ export default class Card extends Component{
         }
     }
 
-    render(){
+    render(props){
         return(
             <Fade>
             <div className = "feature-card">
-
+              <p className="article-title">{this.props.title}</p>
+              <p className="date">{this.props.date}</p>
             </div>
             </Fade>
         )
     }
-
-
 }
