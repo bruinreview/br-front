@@ -1,8 +1,31 @@
 .feature-card{
     width:100%;
-    margin-bottom:15px;    
+    margin-bottom:15px;
     height: 300px;
     background-color: #191919;
-    border-radius: 8px
+    border-radius: 8px;
+    text-align: left;
+    padding: 20px;
 
+}
+
+.feature-card:hover{
+  background-color: #66cef5;
+}
+
+.feature-card:hover p {
+  color: black !important;
+}
+
+.article-title{
+  font-weight: bold;
+  font-style: italic;
+  font-size: 14pt;
+  line-height: 18pt;
+  font-family: 'freight';
+}
+
+.date{
+  font-size: 8pt;
+  font-family:'freight-sans';
 }
