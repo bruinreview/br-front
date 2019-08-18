@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../Header';
 
 
 export default class Print extends Component{
@@ -9,9 +10,12 @@ export default class Print extends Component{
     }
     render(){
         return(
-            <h1 className="bg-color">
-                Print Page
-            </h1>
+          <div className="flex justify-center home">
+              <Header />
+              <div className="main flex justify-center">
+
+              </div>
+          </div>
         )
     }
 

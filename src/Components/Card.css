@@ -9,7 +9,7 @@
 
 }
 
-.feature-card:hover{
+.feature-card:hover{ /*re-do all hover formatting in CSS for faster */
   background-color: #66cef5;
 }
 
@@ -17,15 +17,15 @@
   color: black !important;
 }
 
+.metadata{
+  font-size: 10pt;
+  font-family: 'freight-sans';
+}
+
 .article-title{
   font-weight: bold;
   font-style: italic;
   font-size: 14pt;
   line-height: 18pt;
-  font-family: 'freight';
-}
-
-.date{
-  font-size: 8pt;
-  font-family:'freight-sans';
+  font-family: 'freight-text';
 }
