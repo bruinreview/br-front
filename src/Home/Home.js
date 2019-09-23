@@ -16,15 +16,15 @@ export default class Home extends Component{
                 <Header />
                 <div className="main flex justify-center">
                     <div className="feature">
-                        <Card title='Sample Title 1' date="31 July 2019"/>
-                        <Card title='Sample Title 2' date="26 July 2019"/>
+                        <Card title='Sample Title 1' date="31 July 2019" author="Sample Author"/>
+                        <Card title='Sample Title 2' date="26 July 2019" author="Sample Author"/>
                     </div>
                     <div className="normal">
-                        <Card title='Sample Title 3' date="1 August 2019"/>
+                        <Card title='Sample Title 3' date="1 August 2019" author="Sample Author"/>
 
                     </div>
                     <div className="normal">
-                        <Card title='Sample Title 4' date = "29 July 2019"/>
+                        <Card title='Sample Title 4' date = "29 July 2019" author="Sample Author"/>
 
                     </div>
                 </div>
