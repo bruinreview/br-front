@@ -13,7 +13,7 @@ export default class Print extends Component{
           <div className="flex justify-center home">
               <Header />
               <div className="main flex justify-center">
-
+              
               </div>
           </div>
         )

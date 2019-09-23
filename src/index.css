@@ -19,9 +19,26 @@ body > div{
 
 @font-face {
     font-family: 'freight-sans';
-    src: url('./resources/freight-sans-bold.woff') format('woff');
+    src: url('./resources/fonts/freight-sans-bold.woff') format('woff');
     font-weight: bold;
 }
+
+@font-face {
+    font-family: 'freight-text-book';
+    src: url('./resources/fonts/freight-text-book.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'freight-text-black';
+    src: url('./resources/fonts/freight-text-black-italic.otf') format('opentype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'freight-text';
+    src: url('./resources/fonts/freight-text-medium.otf') format('opentype');
+}
+
 html{
     --blue: rgba(0, 174, 239);
     width:100%;

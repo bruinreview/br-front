@@ -1,0 +1,9 @@
+.left-col, .right-col{
+  width:47%;
+  height:100%;
+  margin: 0 1% 0 1%;
+}
+
+.left-col p, .right-col p{
+  font-family: 'freight-text-book';
+}
