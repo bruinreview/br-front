@@ -16,7 +16,44 @@
   font-family: 'freight-text-black';
 }
 
+#apply_selections{
+  display: inline-flex;
+  flex-direction: row;
+  flex-grow: 1;
+  width: 100%;
+  padding: 7px 0px;
+}
+
+#response1, #response2{
+  width: 100%;
+  resize: vertical;
+  background-color: #333333;
+  color: white;
+  border: none;
+  height: 100px;
+}
+
+#apply_selections button{
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+  background-color: #66cef5;
+  cursor: pointer;
+  font-family: 'freight-sans';
+  border: none;
+}
+
+#contact-card{
+  overflow: auto;
+  max-height: 300px;
+}
+
 .card p{
   font-size: 11pt;
-  font-family: 'freight-text-book';
+  font-family: 'freight-sans';
+
+}
+
+.right-col > .card p{
+  font-weight: bold;
 }

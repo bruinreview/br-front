@@ -27,6 +27,7 @@
     color:white;
     font-size:30px;
     font-family:'freight-sans';
+		font-weight: bold;
 }
 
 .nav:hover{

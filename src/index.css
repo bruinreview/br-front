@@ -16,6 +16,10 @@ body > div{
     height:100%;
 }
 
+@font-face {
+    font-family: 'freight-sans';
+    src: url('./resources/fonts/freight-sans-medium.otf') format('opentype');
+}
 
 @font-face {
     font-family: 'freight-sans';

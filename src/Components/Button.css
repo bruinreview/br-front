@@ -7,17 +7,12 @@
   margin-top: 4px;
   border-radius: 8px;
   cursor: pointer;
+  font-family: freight-sans;
+  border: none;
 }
 
 #other{
   margin-right:0px;
-}
-
-#message{
-  width: 100%;
-  margin: 10px 0px 0px 0px;
-  resize: vertical;
-
 }
 
 #submitBtn{
@@ -27,12 +22,11 @@
   margin: 10px 0px 0px 0px;
   resize: vertical;
   float: right;
+  cursor: pointer;
   background-color: #191919;
   border-color: #66cef5;
   color: white;
 }
-
-
 
 .button-list{
   width: 100%;
