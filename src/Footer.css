@@ -1,0 +1,20 @@
+.ft-line-bottom{
+    height:57px;
+    width:3px;
+    margin-top:10px;
+    background-color:var(--blue);
+}
+
+.footer{
+    position:fixed;
+    bottom:0px;
+    width:20px;
+    right: 7%;
+}
+.ft-line-top{
+    margin-bottom:12px;
+    height:193px;
+    width:3px;
+    margin-top:13px;
+    background-color:var(--blue);
+}

@@ -19,8 +19,11 @@ export default class Card extends Component{
       // }
         return(
             <Fade>
-            <div className = "feature-card">
-              <p className="article-title">{this.props.title}</p>
+            <div className ={`${this.props.category}-card card`}>
+              <div className="flex justify-between">
+                  <p className="article-title">{this.props.title}</p>
+                  <div className= {`iconType ${this.props.type}`}/>
+              </div>
               <p className="metadata">{this.props.date}</p>
               <Tags className="metadata" tags={["#test1", "#test2", "#test3"]} />
               <p className="metadata" style={{fontWeight: "bold"}}>by: {this.props.author}</p>

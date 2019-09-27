@@ -14,7 +14,7 @@ export default class About extends Component{
     render(props){
         return(
             <Fade>
-            <div className="card">
+            <div className="aboutCard">
               <h3 className="title">About the Bruin Review</h3>
               <p>The University was once a place of eclectic thought – the gathering of bright minds to encourage the exchange, deliberation, and inspection of ideas. Today, the inverse is true. Universities are proxy for a narrow viewpoint that is easily predictable and left unquestioned. Ideas are no longer submitted as subjects of observation and scrutiny; rather, they are endowed to students as delicacies to be defended at any cost.</p>
               <p>The Bruin Review was founded to end this soft treatment of ideas. Thought should be forged, not coddled. The University has lost its edge as a tool for truth. Instead, it is a cog in the wheel of ideology. The Review aims to bring back those tools for the scrutiny of thought. To learn is to be curious, and to be curious is to question. The Review is here to question.</p>

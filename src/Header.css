@@ -5,7 +5,6 @@
     left: 7%;
     position:relative;
 }
-
 .line-bottom{
     height:1px;
     width:220px;
@@ -37,5 +36,5 @@
 
 .container{
     width:100%;
-    position:absolute;
+    position:fixed;
 }
