@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Reveal from 'react-reveal/Reveal'
 import {Zoom, Fade} from 'react-reveal';
 import './Card.css';
 import Tags from './Tags'
@@ -17,8 +18,10 @@ export default class Card extends Component{
       // } else {
       //   image=null
       // }
+            //<Reveal collapse "animated zoomIn" when={this.props.show} delay={delay*100} duration={300}>
+        let delay = Math.floor(Math.random() * 5);
         return(
-            <Fade>
+            <Zoom collapse when={this.props.show} delay={delay*100}>
             <div className ={`${this.props.category}-card card`}>
               <div className="flex justify-between">
                   <p className="article-title">{this.props.title}</p>
@@ -28,7 +31,7 @@ export default class Card extends Component{
               <Tags className="metadata" tags={["#test1", "#test2", "#test3"]} />
               <p className="metadata" style={{fontWeight: "bold"}}>by: {this.props.author}</p>
             </div>
-            </Fade>
+            </Zoom>
         )
     }
 }

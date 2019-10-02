@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header';
+import SearchBar from '../Components/SearchBar';
 
 
 export default class Print extends Component{
@@ -12,6 +13,7 @@ export default class Print extends Component{
         return(
           <div className="flex justify-center home">
               <Header />
+              <SearchBar/>
               <div className="main flex justify-center">
 
               </div>

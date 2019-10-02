@@ -6,6 +6,7 @@ import Connect from './Connect/Connect';
 import Print from './Print/Print';
 import Header from './Header';
 import logo from './logo.svg';
+import './resources/animate.css'
 import './App.css';
 
 
