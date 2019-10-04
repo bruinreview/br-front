@@ -82,19 +82,45 @@ export default class Home extends Component{
             posts:data,
             filter: '',
             searchVal: '',
+            showSearch: false,
+            searchFocus: false
         }
+        this.clickSearch = this.clickSearch.bind(this);
         this.handleFilter = this.handleFilter.bind(this);
         this.searchChange = this.searchChange.bind(this);
+    }
+
+    handleSearchBar = (e) => {
+        console.log(e);
+        if(e.key == 'Escape'){
+            this.setState({
+                showSearch: false,
+                searchVal: ''
+            })
+
+        }
+        if("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".includes(e.key) &&
+           !this.state.showSearch && this.state.searchVal == ''){
+            this.setState({
+                showSearch: true,
+            })
+        }
+
+    }
+
+    componentWillMount(){
+        document.addEventListener('keydown', this.handleSearchBar);
+
     }
 
     filterCards(posts){
         return posts
                     .map(post => {
                 if((this.state.filter === '' || post.type === this.state.filter) &&
-                                    (post.title.toLowerCase().includes(this.state.searchVal) ||
-                                    post.type.toLowerCase().includes(this.state.searchVal) ||
-                                    post.date.toLowerCase().includes(this.state.searchVal) ||
-                                    post.author.toLowerCase().includes(this.state.searchVal))){
+                                    (post.title.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
+                                    post.type.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
+                                    post.date.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
+                                    post.author.toLowerCase().includes(this.state.searchVal.toLowerCase()))){
                     return <Card title={post.title} date = {post.date} show = {true} category={post.category} type={`${post.type}Icon`} author = {post.author} />
                 }
                 else if(post.type !== this.state.filter){
@@ -131,21 +157,32 @@ export default class Home extends Component{
     }
     searchChange(e){
         this.setState({searchVal: e.target.value})
+        if(e.target.value==''){
+            this.setState({
+                showSearch:false
+            })
+        }
+    }
+
+    clickSearch(e){
+        this.setState({showSearch: !this.state.showSearch});
     }
     render(){
         return(
             <div className="flex justify-center home">
-                <Header />
-                <SearchBar searchChange={this.searchChange} searchVal ={this.state.searchVal}/>
-                <div className="main flex justify-center">
-                    <div className="feature">
-                        {this.generateCards("feature", this.state.posts)}
-                    </div>
-                    <div className="normal">
-                        {this.generateCards("normal", this.state.posts, 1)}
-                    </div>
-                    <div className="normal">
-                        {this.generateCards("normal", this.state.posts, 2)}
+                <Header clickSearch={this.clickSearch}/>
+                <div className="main">
+                    <SearchBar inputRef={this.inputRef} searchFocus={this.state.searchFocus} searchChange={this.searchChange} showSearch = {this.state.showSearch} searchVal ={this.state.searchVal}/>
+                    <div className="flex justify-center">
+                        <div className="feature">
+                            {this.generateCards("feature", this.state.posts)}
+                        </div>
+                        <div className="normal">
+                            {this.generateCards("normal", this.state.posts, 1)}
+                        </div>
+                        <div className="normal">
+                            {this.generateCards("normal", this.state.posts, 2)}
+                        </div>
                     </div>
                 </div>
                 <Footer handleFilter={this.handleFilter}/>

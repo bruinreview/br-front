@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Zoom from 'react-reveal';
+import {Zoom, Fade} from 'react-reveal';
+import './SearchBar.css';
 
 
 export default class SearchBar extends Component{
@@ -7,11 +8,15 @@ export default class SearchBar extends Component{
         super(props);
     }
 
+    componentDidUpdate() {
+      this.inputRef.focus();
+    }
     render(){
         return(
-            <Zoom>
-                <input type="text" value = {this.props.searchVal} onChange={this.props.searchChange} placeholder="Search"/>
-            </Zoom>
+            <Fade top collapse duration={500} when={this.props.showSearch}>
+                <input ref={(input) => {this.inputRef=input}} className="searchInput" type="text" value = {this.props.searchVal} onChange={this.props.searchChange} placeholder="Search"/>
+            </Fade>
+
 
 
         )

@@ -7,13 +7,21 @@
 }
 .line-bottom{
     height:1px;
-    width:220px;
+    width:180px;
     margin-top:19px;
     border-top-width: 2px;
     border-color: var(--blue);
     border-top-style: solid;
 }
 
+.searchIcon{
+    width:37px;
+    transform: rotate(90deg);
+    height:37px;
+    background-size: cover;
+    position:relative;
+    background-image: url('./resources/icons_search.png');
+}
 .line-top{
     height:1px;
     width:45px;

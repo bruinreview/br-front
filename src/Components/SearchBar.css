@@ -1,0 +1,14 @@
+.searchInput{
+    width:96%;
+    padding: 20px;
+    background-color: inherit;
+    color:white;
+    font-size:20px;
+    font-family:'freight-sans';
+	font-weight: bold;
+    border-color: rgba(255,255,255,0.5);
+    border-width:5px;
+    border-radius:9px;
+    margin-bottom:30px;
+
+}
