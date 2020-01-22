@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header';
+import Footer from '../Footer';
 import './Connect.css';
 import About from '../Components/About';
 import Contact from '../Components/Contact';
@@ -27,6 +28,7 @@ export default class Print extends Component{
                   <Support />
                 </div>
               </div>
+              <Footer />
           </div>
         )
     }
