@@ -94,7 +94,7 @@ class Home extends Component{
 
     handleSearchBar = (e) => {
         console.log(e);
-        if(e.key == 'Escape'){
+        if(e.key === 'Escape'){
             this.setState({
                 showSearch: false,
                 searchVal: ''
@@ -102,7 +102,7 @@ class Home extends Component{
 
         }
         if("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".includes(e.key) &&
-           !this.state.showSearch && this.state.searchVal == ''){
+           !this.state.showSearch && this.state.searchVal === ''){
             this.setState({
                 showSearch: true,
             })
@@ -140,10 +140,10 @@ class Home extends Component{
     }
 
     generateCards(category, posts, normal=1){
-        if(normal == 0){
+        if(normal === 0){
             return this.filterCards(posts.filter(post => post.category === category));
         }
-        else if(normal == 1){
+        else if(normal === 1){
             posts = posts.filter(post => post.category === category)
             var half_length = Math.ceil(posts.length / 2);
             posts = posts.splice(0,half_length);
@@ -167,7 +167,7 @@ class Home extends Component{
     }
     searchChange(e){
         this.setState({searchVal: e.target.value})
-        if(e.target.value==''){
+        if(e.target.value===''){
             this.setState({
                 showSearch:false
             })
