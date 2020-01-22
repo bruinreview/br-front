@@ -5,81 +5,81 @@ import SearchBar from '../Components/SearchBar'
 import Footer from '../Footer';
 import Card from '../Components/Card' ;
 
-const data = [
-    {
-        title:    "Giant Tree Falls Down In Bruin Plaza",
-        type:     "audio",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Alvin Duong",
-    },
-    {
-        title:    "Admission Scandal Continues",
-        type:     "video",
-        category: "feature",
-        date:     "31 July 2019",
-        author:   "Joe Rainey",
-    },
-    {
-        title:    "Bruin Review Ranked No.1 Club at UCLA",
-        type:     "regular",
-        category: "feature",
-        date:     "31 July 2019",
-        author:   "Sharon John",
-    },
+// const data = [
+//     {
+//         title:    "Giant Tree Falls Down In Bruin Plaza",
+//         type:     "audio",
+//         category: "normal",
+//         date:     "31 July 2019",
+//         author:   "Alvin Duong",
+//     },
+//     {
+//         title:    "Admission Scandal Continues",
+//         type:     "video",
+//         category: "feature",
+//         date:     "31 July 2019",
+//         author:   "Joe Rainey",
+//     },
+//     {
+//         title:    "Bruin Review Ranked No.1 Club at UCLA",
+//         type:     "regular",
+//         category: "feature",
+//         date:     "31 July 2019",
+//         author:   "Sharon John",
+//     },
+//
+//     {
+//         title:    "Daily Bruin Under Fire for Gross Misconduct",
+//         type:     "audio",
+//         category: "feature",
+//         date:     "31 July 2019",
+//         author:   "Sam Tang",
+//     },
+//     {
+//         title:    "Free Will. Is it an Illusion?",
+//         type:     "video",
+//         category: "normal",
+//         date:     "31 July 2019",
+//         author:   "Julia Tung",
+//     },
+//     {
+//         title:    "Quantum Computing Explained",
+//         type:     "regular",
+//         category: "normal",
+//         date:     "31 July 2019",
+//         author:   "Sam Tang",
+//     },
+//     {
+//         title:    "Professor Rosario Ranked Worst Professor at UCLA",
+//         type:     "audio",
+//         category: "normal",
+//         date:     "31 July 2019",
+//         author:   "Sharon John",
+//     },
+//     {
+//         title:    "Coffee vs Tea, the Century-Old Debate",
+//         type:     "video",
+//         category: "normal",
+//         date:     "31 July 2019",
+//         author:   "Joe Rainey",
+//     },
+//     {
+//         title:    "How To Handle Fame, Campus Organization Edition",
+//         type:     "regular",
+//         category: "normal",
+//         date:     "31 July 2019",
+//         author:   "Julia Tung",
+//     },
+// ]
+//
 
-    {
-        title:    "Daily Bruin Under Fire for Gross Misconduct",
-        type:     "audio",
-        category: "feature",
-        date:     "31 July 2019",
-        author:   "Sam Tang",
-    },
-    {
-        title:    "Free Will. Is it an Illusion?",
-        type:     "video",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Julia Tung",
-    },
-    {
-        title:    "Quantum Computing Explained",
-        type:     "regular",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Sam Tang",
-    },
-    {
-        title:    "Professor Rosario Ranked Worst Professor at UCLA",
-        type:     "audio",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Sharon John",
-    },
-    {
-        title:    "Coffee vs Tea, the Century-Old Debate",
-        type:     "video",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Joe Rainey",
-    },
-    {
-        title:    "How To Handle Fame, Campus Organization Edition",
-        type:     "regular",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Julia Tung",
-    },
-]
 
-
-
-export default class Home extends Component{
+class Home extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-            posts:data,
+            // posts:'',
             filter: '',
             searchVal: '',
             showSearch: false,
@@ -89,6 +89,8 @@ export default class Home extends Component{
         this.handleFilter = this.handleFilter.bind(this);
         this.searchChange = this.searchChange.bind(this);
     }
+
+
 
     handleSearchBar = (e) => {
         console.log(e);
@@ -107,10 +109,18 @@ export default class Home extends Component{
         }
 
     }
-
+    componentDidMount(){
+        console.log("here!");
+        fetch('http://localhost:2368/ghost/api/v3/content/posts/?key=470f4ba34a6edf9d72b6247fd9')
+            .then(res => res.json())
+            .then((data) => {
+                console.log(data);
+              this.setState({ posts: data });
+            })
+            .catch(console.log)
+    }
     componentWillMount(){
         document.addEventListener('keydown', this.handleSearchBar);
-
     }
 
     filterCards(posts){
@@ -168,6 +178,7 @@ export default class Home extends Component{
         this.setState({showSearch: !this.state.showSearch});
     }
     render(){
+        console.log(this.state.posts);
         return(
             <div className="flex justify-center home">
                 <Header clickSearch={this.clickSearch}/>
@@ -191,3 +202,5 @@ export default class Home extends Component{
     }
 
 }
+
+export default Home;
