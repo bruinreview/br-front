@@ -11,18 +11,22 @@ export default class Article extends Component{
       }
   }
   render(){
+      let delay1 = Math.floor(Math.random() * 5);
+      let delay2 = Math.floor(Math.random() * 5);
+      let delay3 = Math.floor(Math.random() * 5);
       return(
-        <div className="flex justify-center home">
+        <div className="flex justify-center">
           <Header />
             <div className="main flex justify-center">
+            <Zoom delay={delay1*50}>
               <div className="primary card">
-                <Fade>
                   <h3 id="article-title">Some Featured Article Here I Guess</h3>
                   <p>Aque nonsequi conseceror re, si dolessunt am, num ipsaes accus velignatur? Quidi dolorporerio odis eveles aut utatiusciae ducias simint hiliassim accuste cus excersperi od ea delia aditius et eaquia doluptatesti ut asperia doluptiandis solum, quiducid eos diae corehendam arum landips andendias esto cor audam il mos con pra alicia pratiae porempo rerupis alis idionectem elenda volupta quaeste sequosa nturest exceperrorem et latquatur apidel mi, quassum quis esequid eliqui tes mincil illiquo et dolo omnis quia natias adissumquod quatqui aut adis iunt resciduci ut praere volo modionsed ulparum utMi, corioreped qui non remquam corepero quam, coribea comnien imaioritenis reium nonsequiatur, quatiae. Et moluptatem fuga. Ut oditate simagni ssequis et, natur, solut a sunt. </p>
                   <p>Porro cuptasp eribusam nempos et rerum fuga. Nam exerspe porporia int omnisim agnihit rem es si aligendae prorerum dignit, imet offictotatio mil id excernat dellore ptatur simillaborro eosandaeped elest, tem de corem et omnisci doluptaquam is con et ad modi dolorepel maximillaut que voloreces nim fugias excestet ipienis estorestore redolorerio quam quidebiti odigenit volorpores voluptatia alique venda voluptas dolore arciusa cum facculles dolesed quiatempor sa quae occaest inullectatur magnamusda solume nostibus qui tempore molloreri voluptate nias ped ut voloria sequide et ilique volest lia vitiam aut hario iligentectia commo eate nusapit.</p>
-                </Fade>
               </div>
+          </Zoom>
               <div className="normal">
+            <Zoom delay={delay2*50}>
                 <div className="card" id="facts-card">
                   <h4>Quick Facts</h4>
                   <hr />
@@ -40,9 +44,12 @@ export default class Article extends Component{
                   <button className="button-article">head-to-head</button>
                   <button className="button-article">satire</button>
                 </div>
+          </Zoom>
+            <Zoom delay={delay3*50}>
                 <div className="card">
                   <h4>Share</h4>
                 </div>
+            </Zoom>
               </div>
             </div>
           <Footer />

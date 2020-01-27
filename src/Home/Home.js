@@ -121,10 +121,10 @@ export default class Home extends Component{
                                     post.type.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
                                     post.date.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
                                     post.author.toLowerCase().includes(this.state.searchVal.toLowerCase()))){
-                    return <Card title={post.title} date = {post.date} show = {true} category={post.category} type={`${post.type}Icon`} author = {post.author} />
+                    return <Card transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {true} category={post.category} type={`${post.type}Icon`} author = {post.author} />
                 }
                 else if(post.type !== this.state.filter){
-                    return <Card title={post.title} date = {post.date} show = {false} category={post.category} type={`${post.type}Icon`} author = {post.author} />
+                    return <Card transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {false} category={post.category} type={`${post.type}Icon`} author = {post.author} />
                 }
             })
     }
@@ -162,6 +162,11 @@ export default class Home extends Component{
                 showSearch:false
             })
         }
+    }
+
+    transitionToFull = (e)=>{
+        this.setState({searchVal:'$'})
+        setTimeout(()=>{this.props.history.push('/article')}, 500);
     }
 
     clickSearch(e){

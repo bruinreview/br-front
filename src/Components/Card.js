@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import Reveal from 'react-reveal/Reveal'
 import {Zoom, Fade} from 'react-reveal';
 import './Card.css';
-import Tags from './Tags'
+import Tags from './Tags';
+import {withRouter} from 'react-router-dom';
 
-export default class Card extends Component{
+class Card extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -21,8 +22,9 @@ export default class Card extends Component{
             //<Reveal collapse "animated zoomIn" when={this.props.show} delay={delay*100} duration={300}>
         let delay = Math.floor(Math.random() * 5);
         return(
-            <Zoom collapse when={this.props.show} delay={delay*100}>
-            <div className ={`${this.props.category}-card card`}>
+            <Zoom collapse when={this.props.show} delay={delay*50}>
+            <div onClick={()=>{this.props.transitionToFull(this.props.title)}}
+             className ={`${this.props.category}-card card`}>
               <div className="flex justify-between">
                   <p className="article-title">{this.props.title}</p>
                   <div className= {`iconType ${this.props.type}`}/>
@@ -35,3 +37,4 @@ export default class Card extends Component{
         )
     }
 }
+export default withRouter(Card);
