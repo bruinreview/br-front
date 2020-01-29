@@ -23,12 +23,13 @@ class Card extends Component{
         let delay = Math.floor(Math.random() * 5);
         return(
             <Zoom collapse when={this.props.show} delay={delay*50}>
-            <div onClick={()=>{this.props.transitionToFull(this.props.title)}}
+            <div onClick={()=>{this.props.transitionToFull(this.props.id)}}
              className ={`${this.props.category}-card card`}>
               <div className="flex justify-between">
                   <p className="article-title">{this.props.title}</p>
                   <div className= {`iconType ${this.props.type}`}/>
               </div>
+              <img src={this.props.imgURL}/>
               <p className="metadata">{this.props.date}</p>
               <Tags className="metadata" tags={["#test1", "#test2", "#test3"]} />
               <p className="metadata" style={{fontWeight: "bold"}}>by: {this.props.author}</p>

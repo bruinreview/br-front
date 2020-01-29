@@ -4,6 +4,22 @@ import Header from '../Header';
 import SearchBar from '../Components/SearchBar'
 import Footer from '../Footer';
 import Card from '../Components/Card' ;
+import GhostContentAPI from '@tryghost/content-api'
+
+
+class Post{
+    constructor(obj){
+        this.id = obj.id;
+        this.title = obj.title;
+        this.type = obj.type;
+        this.category = obj.category;
+        this.date = obj.date;
+        this.author = obj.author;
+        this.text = obj.text;
+        this.image = obj.image;
+    }
+
+}
 
 const data = [
     {
@@ -72,14 +88,20 @@ const data = [
     },
 ]
 
+const API = "http://localhost:8080/ghost/api/v3/content/posts/?key=792192ced33ea2368fdbcd89de"
 
+const api = new GhostContentAPI({
+  url: 'http://localhost:8080',
+  key: '792192ced33ea2368fdbcd89de',
+  version: "v3"
+});
 
 export default class Home extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-            posts:data,
+            posts:[],
             filter: '',
             searchVal: '',
             showSearch: false,
@@ -90,8 +112,30 @@ export default class Home extends Component{
         this.searchChange = this.searchChange.bind(this);
     }
 
+    componentDidMount(){
+        api.posts
+            .browse({limit: 5, include: 'tags,authors', formats: ['plaintext']})
+            .then((postData) => {
+                postData.forEach((p) => {
+                    this.setState({posts: [...this.state.posts,
+                        new Post({id: p.id,
+                                  title: p.title,
+                                  type: "regular",
+                                  category: p.featured ? "feature" : "normal",
+                                  date: "",
+                                  author: p.authors[0].name,
+                                  text: p.plaintext,
+                                  image: p.feature_image}
+                                )]});
+                });
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+
+    }
+
     handleSearchBar = (e) => {
-        console.log(e);
         if(e.key === 'Escape'){
             this.setState({
                 showSearch: false,
@@ -114,19 +158,19 @@ export default class Home extends Component{
     }
 
     filterCards(posts){
-        return posts
-                    .map(post => {
+        let p =  posts.map(post => {
                 if((this.state.filter === '' || post.type === this.state.filter) &&
                                     (post.title.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
                                     post.type.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
                                     post.date.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
                                     post.author.toLowerCase().includes(this.state.searchVal.toLowerCase()))){
-                    return <Card transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {true} category={post.category} type={`${post.type}Icon`} author = {post.author} />
+                    return <Card id = {post.id} key = {post.id} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {true} category={post.category} type={`${post.type}Icon`} author = {post.author} />
                 }
                 else if(post.type !== this.state.filter){
-                    return <Card transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {false} category={post.category} type={`${post.type}Icon`} author = {post.author} />
+                    return <Card  id = {post.id} key={post.id} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {false} category={post.category} type={`${post.type}Icon`} author = {post.author} />
                 }
             })
+        return p;
     }
 
     generateCards(category, posts, normal=1){
@@ -165,8 +209,10 @@ export default class Home extends Component{
     }
 
     transitionToFull = (e)=>{
+        console.log("hi");
+        console.log(e);
         this.setState({searchVal:'$'})
-        setTimeout(()=>{this.props.history.push('/article')}, 500);
+        setTimeout(()=>{this.props.history.push({pathname: '/article',  state: {post: this.state.posts.filter(post => post.id == e)[0]}})}, 500);
     }
 
     clickSearch(e){
@@ -180,7 +226,7 @@ export default class Home extends Component{
                     <SearchBar inputRef={this.inputRef} searchFocus={this.state.searchFocus} searchChange={this.searchChange} showSearch = {this.state.showSearch} searchVal ={this.state.searchVal}/>
                     <div className="flex justify-center">
                         <div className="feature">
-                            {this.generateCards("feature", this.state.posts)}
+                            {this.generateCards("feature", this.state.posts, 0)}
                         </div>
                         <div className="normal">
                             {this.generateCards("normal", this.state.posts, 1)}

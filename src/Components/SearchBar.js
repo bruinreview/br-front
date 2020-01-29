@@ -13,7 +13,7 @@ export default class SearchBar extends Component{
     }
     render(){
         return(
-            <Fade top collapse duration={500} when={this.props.showSearch}>
+            <Fade top collapse duration={300} when={this.props.showSearch}>
                 <input ref={(input) => {this.inputRef=input}} className="searchInput" type="text" value = {this.props.searchVal} onChange={this.props.searchChange} placeholder="Search"/>
             </Fade>
 
