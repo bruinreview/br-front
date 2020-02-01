@@ -5,6 +5,7 @@ import SearchBar from '../Components/SearchBar'
 import Footer from '../Footer';
 import Card from '../Components/Card' ;
 import GhostContentAPI from '@tryghost/content-api'
+import {key, host} from '../constants.js';
 
 
 class Post{
@@ -92,8 +93,8 @@ const data = [
 const API = "http://localhost:8080/ghost/api/v3/content/posts/?key=792192ced33ea2368fdbcd89de"
 
 const api = new GhostContentAPI({
-  url: 'http://localhost:8080',
-  key: '792192ced33ea2368fdbcd89de',
+  url: host,
+  key: key,
   version: "v3"
 });
 
