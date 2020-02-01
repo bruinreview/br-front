@@ -10,13 +10,15 @@
   font-style: italic;
   font-size: 18pt;
   line-height: 22pt;
-  margin: 0;
+  margin-bottom: 15px;
   font-family: 'freight-text-black';
 
 }
 
 .primary{
   width:72%;
+  padding:50px;
+  padding-top:55px;
   height: fit-content;
   overflow: scroll;
   margin: 0 1% 0 1%;
@@ -24,9 +26,9 @@
 }
 
 .primary p {
-  font-family: 'freight-text-book';
+  font-family: 'freight-sans';
   font-size: 12pt !important;
-  line-height: 1.5;
+  line-height: 21pt;
 }
 
 .card{

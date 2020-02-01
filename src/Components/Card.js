@@ -14,23 +14,18 @@ class Card extends Component{
     }
 
     render(props){
-      // if(this.props.imgURL){
-      //   image='<img src={this.props.imgURL} />'
-      // } else {
-      //   image=null
-      // }
             //<Reveal collapse "animated zoomIn" when={this.props.show} delay={delay*100} duration={300}>
         let delay = Math.floor(Math.random() * 5);
         return(
             <Zoom collapse when={this.props.show} delay={delay*50}>
             <div onClick={()=>{this.props.transitionToFull(this.props.id)}}
              className ={`${this.props.category}-card card`}>
-              <div className="flex justify-between">
+              <div className="flex justify-between title">
                   <p className="article-title">{this.props.title}</p>
                   <div className= {`iconType ${this.props.type}`}/>
               </div>
-              <img src={this.props.imgURL}/>
               <p className="metadata">{this.props.date}</p>
+              <div><img src={this.props.imgURL}/></div>
               <Tags className="metadata" tags={["#test1", "#test2", "#test3"]} />
               <p className="metadata" style={{fontWeight: "bold"}}>by: {this.props.author}</p>
             </div>
