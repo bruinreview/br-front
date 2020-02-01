@@ -1,5 +1,6 @@
 
 # Mac-exclusive files that mean nothing for Windows users
+constants.js
 .DS_Store
 */.DS_Store
 
