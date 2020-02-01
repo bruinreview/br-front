@@ -16,6 +16,9 @@ export default class Article extends Component{
       let delay3 = Math.floor(Math.random() * 5);
       console.log(this.props.location.state.post);
       // console.log(this.props.location);
+      let image = null;
+      if(this.props.location.state.post.image)
+        image = <img style={{'border-radius':'10px', 'padding-bottom':'32px'}} src={this.props.location.state.post.image}/>
       return(
         <div className="flex justify-center">
           <Header />
@@ -23,6 +26,7 @@ export default class Article extends Component{
             <Zoom delay={delay1*50}>
               <div className="primary card">
                   <h3 id="article-title">{this.props.location.state.post.title}</h3>
+                  {image}
                   <p>
                   {this.props.location.state.post.text}
                   </p>

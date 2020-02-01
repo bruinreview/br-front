@@ -15,6 +15,7 @@ class Post{
         this.category = obj.category;
         this.date = obj.date;
         this.author = obj.author;
+        this.html = obj.html;
         this.text = obj.text;
         this.image = obj.image;
     }
@@ -114,7 +115,7 @@ export default class Home extends Component{
 
     componentDidMount(){
         api.posts
-            .browse({limit: 5, include: 'tags,authors', formats: ['plaintext']})
+            .browse({limit: 5, include: 'tags,authors', formats: ['plaintext', 'html']})
             .then((postData) => {
                 postData.forEach((p) => {
                     this.setState({posts: [...this.state.posts,
@@ -122,8 +123,9 @@ export default class Home extends Component{
                                   title: p.title,
                                   type: "regular",
                                   category: p.featured ? "feature" : "normal",
-                                  date: "",
+                                  date: "January 27th 2020",
                                   author: p.authors[0].name,
+                                  html: p.html,
                                   text: p.plaintext,
                                   image: p.feature_image}
                                 )]});
@@ -164,10 +166,10 @@ export default class Home extends Component{
                                     post.type.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
                                     post.date.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
                                     post.author.toLowerCase().includes(this.state.searchVal.toLowerCase()))){
-                    return <Card id = {post.id} key = {post.id} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {true} category={post.category} type={`${post.type}Icon`} author = {post.author} />
+                    return <React.Fragment> <Card imgURL={post.image} id = {post.id} key = {post.id} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {true} category={post.category} type={`${post.type}Icon`} author = {post.author} /> </React.Fragment>
                 }
                 else if(post.type !== this.state.filter){
-                    return <Card  id = {post.id} key={post.id} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {false} category={post.category} type={`${post.type}Icon`} author = {post.author} />
+                    return <React.Fragment> <Card imgURL={post.image} id = {post.id} key={post.id} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {false} category={post.category} type={`${post.type}Icon`} author = {post.author} /> </React.Fragment>
                 }
             })
         return p;
@@ -224,7 +226,7 @@ export default class Home extends Component{
                 <Header clickSearch={this.clickSearch}/>
                 <div className="main">
                     <SearchBar inputRef={this.inputRef} searchFocus={this.state.searchFocus} searchChange={this.searchChange} showSearch = {this.state.showSearch} searchVal ={this.state.searchVal}/>
-                    <div className="flex justify-center">
+                    <div className="flex justify-center" style={{'height':'100%'}}>
                         <div className="feature">
                             {this.generateCards("feature", this.state.posts, 0)}
                         </div>
