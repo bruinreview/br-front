@@ -24,8 +24,7 @@ export default class Contact extends Component{
     }
     submit = () =>{
         let {name, email, role, r1, r2} = this.state;
-        console.log(role);
-        base('Winter 20 Applicants').create([
+        base('Applications').create([
           {
             "fields": {
               "Name": name,
