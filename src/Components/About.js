@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Zoom, Fade} from 'react-reveal';
+import {Fade} from 'react-reveal';
 import './About.css';
-import Tags from './Tags'
 
 export default class About extends Component{
     constructor(props){

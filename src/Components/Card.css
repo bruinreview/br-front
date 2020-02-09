@@ -1,6 +1,5 @@
 .card{
     margin-bottom:15px;
-    height: 300px;
     background-color: #191919;
     border-radius: 8px;
     text-align: left;
@@ -12,10 +11,9 @@
     /* padding-bottom: 15px; */
 }
 .img{
-    background-image: url('http://localhost:8080/content/images/2020/01/Mark-Cuban.jpg');
     background-size: cover;
     width:100%;
-    height:200px;
+    /* padding-top:50%; */
 
 }
 .feature-card{

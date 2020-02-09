@@ -23,74 +23,7 @@ class Post{
 
 }
 
-const data = [
-    {
-        title:    "Giant Tree Falls Down In Bruin Plaza",
-        type:     "audio",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Alvin Duong",
-    },
-    {
-        title:    "Admission Scandal Continues",
-        type:     "video",
-        category: "feature",
-        date:     "31 July 2019",
-        author:   "Joe Rainey",
-    },
-    {
-        title:    "Bruin Review Ranked No.1 Club at UCLA",
-        type:     "regular",
-        category: "feature",
-        date:     "31 July 2019",
-        author:   "Sharon John",
-    },
 
-    {
-        title:    "Daily Bruin Under Fire for Gross Misconduct",
-        type:     "audio",
-        category: "feature",
-        date:     "31 July 2019",
-        author:   "Sam Tang",
-    },
-    {
-        title:    "Free Will. Is it an Illusion?",
-        type:     "video",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Julia Tung",
-    },
-    {
-        title:    "Quantum Computing Explained",
-        type:     "regular",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Sam Tang",
-    },
-    {
-        title:    "Professor Rosario Ranked Worst Professor at UCLA",
-        type:     "audio",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Sharon John",
-    },
-    {
-        title:    "Coffee vs Tea, the Century-Old Debate",
-        type:     "video",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Joe Rainey",
-    },
-    {
-        title:    "How To Handle Fame, Campus Organization Edition",
-        type:     "regular",
-        category: "normal",
-        date:     "31 July 2019",
-        author:   "Julia Tung",
-    },
-]
-
-const API = "http://localhost:8080/ghost/api/v3/content/posts/?key=792192ced33ea2368fdbcd89de"
 
 const api = new GhostContentAPI({
   url: host,
@@ -167,12 +100,13 @@ export default class Home extends Component{
                                     post.type.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
                                     post.date.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
                                     post.author.toLowerCase().includes(this.state.searchVal.toLowerCase()))){
-                    return <React.Fragment> <Card imgURL={post.image} id = {post.id} key = {post.id} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {true} category={post.category} type={`${post.type}Icon`} author = {post.author} /> </React.Fragment>
+                    return <React.Fragment key={post.id}> <Card key={post.id} imgURL={post.image} id = {post.id} key = {post.id} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {true} category={post.category} type={`${post.type}Icon`} author = {post.author} /> </React.Fragment>
                 }
                 else if(post.type !== this.state.filter){
-                    return <React.Fragment> <Card imgURL={post.image} id = {post.id} key={post.id} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {false} category={post.category} type={`${post.type}Icon`} author = {post.author} /> </React.Fragment>
+                    return <React.Fragment key={post.id}> <Card key={post.id} imgURL={post.image} id = {post.id} key={post.id} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {false} category={post.category} type={`${post.type}Icon`} author = {post.author} /> </React.Fragment>
                 }
             })
+        console.log(p);
         return p;
     }
 

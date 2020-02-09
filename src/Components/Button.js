@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Zoom, Fade} from 'react-reveal';
 import './About.css';
 
 export default class Button extends Component{

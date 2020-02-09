@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
-import {Zoom, Fade} from 'react-reveal';
+import {Zoom} from 'react-reveal';
 import './Article.css'
 
 export default class Article extends Component{
@@ -18,7 +18,7 @@ export default class Article extends Component{
       // console.log(this.props.location);
       let image = null;
       if(this.props.location.state.post.image)
-        image = <img style={{'border-radius':'10px', 'padding-bottom':'32px'}} src={this.props.location.state.post.image}/>
+        image = <img alt="" style={{'border-radius':'10px', 'padding-bottom':'32px'}} src={this.props.location.state.post.image}/>
       return(
         <div className="flex justify-center">
           <Header />

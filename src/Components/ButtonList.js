@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {Zoom, Fade} from 'react-reveal';
 import './Button.css';
 import Button from './Button';
-import Tags from './Tags'
 
 export default class ButtonList extends Component{
     constructor(props){

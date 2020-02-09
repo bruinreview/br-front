@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
-import {Zoom, Fade} from 'react-reveal';
+import {Fade} from 'react-reveal';
 import './SearchBar.css';
 
 
 export default class SearchBar extends Component{
-    constructor(props){
-        super(props);
-    }
 
     componentDidUpdate() {
       this.inputRef.focus();
