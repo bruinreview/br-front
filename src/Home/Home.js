@@ -106,7 +106,6 @@ export default class Home extends Component{
                     return <React.Fragment key={post.id}> <Card key={post.id} imgURL={post.image} id = {post.id} key={post.id} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {false} category={post.category} type={`${post.type}Icon`} author = {post.author} /> </React.Fragment>
                 }
             })
-        console.log(p);
         return p;
     }
 
@@ -149,7 +148,7 @@ export default class Home extends Component{
         console.log("hi");
         console.log(e);
         this.setState({searchVal:'$'})
-        setTimeout(()=>{this.props.history.push({pathname: '/article',  state: {post: this.state.posts.filter(post => post.id == e)[0]}})}, 500);
+        setTimeout(()=>{this.props.history.push({pathname: `/article/${e}`})}, 500);
     }
 
     clickSearch(e){

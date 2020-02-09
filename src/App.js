@@ -16,7 +16,7 @@ function App() {
     <div className="App" style={{width:'100%', height:'100%'}}>
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route exact path="/article" component={Article}/>
+          <Route path="/article/:articleID" component={Article}/>
           <Route exact path="/home" component={Home}/>
           <Route exact path="/connect" component={Connect}/>
           <Route exact path="/shop" component={Shop}/>
