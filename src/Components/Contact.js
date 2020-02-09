@@ -52,6 +52,12 @@ export default class Contact extends Component{
         })
     }
 
+    handleChange = key => f =>{
+        this.setState({
+            [key]: f.target.value
+        })
+    }
+
     render(props){
         let {name, email, role, r2, r1} = this.state;
         return(
@@ -77,7 +83,7 @@ export default class Contact extends Component{
               <p>Tell us about an issue in which you hold a contrarian view.</p>
               <textarea onChange={(e)=>{this.setState({r1: e.target.value})}} value={r1} id="response1"/>
               <p>Describe a recent project or side-hustle.</p>
-              <textarea id="response2"/>
+              <textarea onChange = {(f) => {this.setState({r2: f.target.value})}} value = {r2} id="response2"/>
               <button id="submitBtn" onClick={this.submit}>Submit</button>
             </div>
             </Fade>
