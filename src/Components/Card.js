@@ -23,7 +23,7 @@ class Card extends Component{
         return(
             <React.Fragment>
                 <Zoom appear style={{height:500}} collapse fraction={1} when={this.props.show} delay={delay*50}>
-                <div onClick={()=>{this.props.transitionToFull(this.props.id)}}
+                <div onClick={()=>{this.props.transitionToFull(this.props.slug)}}
                  className ={`${this.props.category}-card card`}>
                   <div className="flex justify-between title">
                       <p className="article-title">{this.props.title}</p>

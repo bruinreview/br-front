@@ -45,7 +45,7 @@ export default class Article extends Component{
       }
   }
   componentDidMount(){
-        api.posts.read({id:this.props.match.params.articleID, include: 'tags,authors'},{formats: ['html', 'plaintext']})
+        api.posts.read({slug:this.props.match.params.articleID, include: 'tags,authors'},{formats: ['html', 'plaintext']})
             .then((p) => {
                 console.log(p);
                 this.setState({post:
@@ -83,9 +83,7 @@ export default class Article extends Component{
               <div className="primary card">
                   <h3 id="article-title">{this.state.post.title}</h3>
                     {image}
-                  <p>
-                  {this.state.post.text}
-                  </p>
+                  <div dangerouslySetInnerHTML={{ __html: this.state.post.html }}/>
               </div>
           </Zoom>
               <div className="normal">
