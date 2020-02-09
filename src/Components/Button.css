@@ -15,6 +15,12 @@
   margin-right:0px;
 }
 
+#submitBtn:hover{
+  background-color: #66cef5;
+}
+button#submitBtn:hover{
+    color: black !important;
+}
 #submitBtn{
   width: 40%;
   padding: 6px;

@@ -8,6 +8,7 @@ import GhostContentAPI from '@tryghost/content-api'
 import {key, host} from '../constants.js';
 
 
+
 class Post{
     constructor(obj){
         this.id = obj.id;
@@ -33,6 +34,7 @@ const api = new GhostContentAPI({
   version: "v3"
 });
 
+
 export default class Home extends Component{
 
     constructor(props){
@@ -51,6 +53,7 @@ export default class Home extends Component{
 
 
     componentDidMount(){
+
         api.posts
             .browse({ include: 'tags,authors', formats: ['plaintext', 'html']})
             .then((postData) => {

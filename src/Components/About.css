@@ -44,8 +44,14 @@
 }
 
 #contact-card{
-  overflow: auto;
-  max-height: 300px;
+    padding-bottom:60px;
+
+
+}
+.input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
 }
 
 .card p{
