@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 import './Connect.css';
-import About from '../Components/About';
-import Contact from '../Components/Contact';
-import GetInvolved from '../Components/GetInvolved';
-import Support from '../Components/Support';
+import About from './Components/About';
+import Contact from './Components/Contact';
+import GetInvolved from './Components/GetInvolved';
+import Support from './Components/Support';
 
 
 export default class Print extends Component{
@@ -21,11 +21,12 @@ export default class Print extends Component{
               <div className="main flex justify-center">
                 <div className="left-col">
                   <About />
+                  <Support />
+
                 </div>
                 <div className="right-col">
                   <Contact />
                   <GetInvolved />
-                  <Support />
                 </div>
               </div>
               <Footer />

@@ -15,24 +15,6 @@
   margin-right:0px;
 }
 
-#submitBtn:hover{
-  background-color: #66cef5;
-}
-button#submitBtn:hover{
-    color: black !important;
-}
-#submitBtn{
-  width: 40%;
-  padding: 6px;
-  border-radius: 8px;
-  margin: 10px 0px 0px 0px;
-  resize: vertical;
-  float: right;
-  cursor: pointer;
-  background-color: #191919;
-  border-color: #66cef5;
-  color: white;
-}
 
 .button-list{
   width: 100%;
