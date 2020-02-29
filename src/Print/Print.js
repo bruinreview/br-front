@@ -19,15 +19,15 @@ export default class Print extends Component{
           <div className="flex justify-center home">
               <Header />
                   <div className="main flex items-start flex-row">
-                      <a href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/BRInauguralEdition.pdf" className="posterCard">
+                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/BRInauguralEdition.pdf" className="posterCard">
                           <div  style={{backgroundImage:`url(${p1})`}} className="poster"/>
                           <div className="posterTitle"> Bruin Review Inaugural Edition</div>
                       </a>
-                      <a href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/News+in+Review+Fall+2019+v2.pdf" className="posterCard">
+                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/News+in+Review+Fall+2019+v2.pdf" className="posterCard">
                           <div  style={{backgroundImage:`url(${p2})`}} className="poster"/>
                           <div className="posterTitle"> News in Review Fall 2019</div>
                       </a>
-                      <a href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/Flagship+III+(Winter+2020)+(2_7).pdf" className="posterCard">
+                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/Flagship+III+(Winter+2020)+(2_7).pdf" className="posterCard">
                           <div  style={{backgroundImage:`url(${p3})`}} className="poster"/>
                           <div className="posterTitle"> Flagship III Winter 2020</div>
                       </a>
