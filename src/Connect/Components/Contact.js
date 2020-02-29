@@ -94,7 +94,7 @@ export default class Contact extends Component{
                 </form>
               </Fade>:
               <Fade>
-                  <div className="ty"> Thanks for submitting your form </div>
+                  <div className="ty"> Thanks for applying to The Bruin Review, we'll be in touch soon! </div>
               </Fade>}
             </div>
             </Fade>
