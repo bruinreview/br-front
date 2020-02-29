@@ -44,14 +44,21 @@
 }
 
 #contact-card{
-    padding: 30px;
-    height: calc(100% - 200px);
-    overflow: scroll;
+    padding: 30px 30px 60px;
 }
 .input{
     margin-top: 10px;
     margin-bottom: 10px;
 
+}
+
+.ty{
+    background-color: #191919;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family:'freight-sans';
+    font-size:20px;
+	font-weight: bold;
 }
 
 hr{
