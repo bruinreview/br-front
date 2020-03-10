@@ -3,8 +3,31 @@ import Header from '../Header';
 import Footer from '../Footer';
 import {Zoom} from 'react-reveal';
 import GhostContentAPI from '@tryghost/content-api'
-import {key, host} from '../constants.js';
+import {key, host, url} from '../constants.js';
 import './Article.css'
+import {
+  EmailShareButton,
+  EmailIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  InstapaperShareButton,
+  LineShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TumblrShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton,
+} from "react-share";
 
 const api = new GhostContentAPI({
   url: host,
@@ -15,6 +38,7 @@ const defa={
     id :"",
     title :"Sorry, this post doesn't exist. :(",
     type :"",
+    tags : [],
     category :"",
     date :"",
     author :"",
@@ -32,11 +56,13 @@ class Post{
         this.date = obj.date;
         this.author = obj.author;
         this.html = obj.html;
+        this.tags = obj.tags;
         this.text = obj.text;
         this.image = obj.image;
     }
 
 }
+const date = (d) => new Date(d.split('T')[0]).toDateString().substring(4);
 export default class Article extends Component{
   constructor(props){
       super(props);
@@ -53,8 +79,9 @@ export default class Article extends Component{
                               title: p.title,
                               type: "regular",
                               category: p.featured ? "feature" : "normal",
-                              date: "January 27th 2020",
+                              date: date(p.published_at),
                               author: p.authors[0].name,
+                              tags: p.tags.map(u=>u.name),
                               html: p.html,
                               text: p.plaintext,
                               image: p.feature_image})
@@ -73,8 +100,9 @@ export default class Article extends Component{
       let delay3 = Math.floor(Math.random() * 5);
       // console.log(location);
       let image = null;
+      console.log(this.state.post.tags);
       if(this.state.post.image)
-        image = <img alt="" style={{'border-radius':'10px', 'padding-bottom':'32px'}} src={this.state.post.image}/>
+        image = <img alt="" style={{borderRadius:'10px', paddingBottom:'32px'}} src={this.state.post.image}/>
       return(
         <div className="flex justify-center">
           <Header />
@@ -91,24 +119,24 @@ export default class Article extends Component{
                 <div className="card" id="facts-card">
                   <h4>Quick Facts</h4>
                   <hr />
-                  <p id="date">5 January 2020</p>
+                  <p id="date">{this.state.post.date}</p>
                   <div id="info">
-                  <p id="author">BY GODIS BLASPHEMY</p>
-                  <p>Class of 2020</p>
-                  <p id="byline">I once thought of a funny byline but can't remember</p>
+                  <p id="author">By {this.state.post.author}</p>
                   </div>
                   <h5>Topics</h5>
-                  <button className="button-article">politics</button>
-                  <button className="button-article">smarticle</button>
-                  <button className="button-article">springtime</button>
-                  <button className="button-article">particles</button>
-                  <button className="button-article">head-to-head</button>
-                  <button className="button-article">satire</button>
+                  {this.state.post.tags.map(t =>
+                      <button className="button-article">{t}</button>)}
                 </div>
           </Zoom>
             <Zoom delay={delay3*50}>
                 <div className="card">
                   <h4>Share</h4>
+                  <div style={{width:'100%'}} className="pv3 flex flex-row justify-between">
+                  <FacebookShareButton children={<FacebookIcon size={32} round={true}/>} url={`${url}/article/${this.props.match.params.articleID}`}/>
+                  <TwitterShareButton  children={<TwitterIcon size={32} round={true}/>} url={`${url}/article/${this.props.match.params.articleID}`}/>
+                  <LinkedinShareButton children={<LinkedinIcon size={32} round={true}/>} url={`${url}/article/${this.props.match.params.articleID}`}/>
+                  <EmailShareButton children={<EmailIcon size={32} round={true}/>} url={`${url}/article/${this.props.match.params.articleID}`}/>
+                  </div>
                 </div>
             </Zoom>
               </div>

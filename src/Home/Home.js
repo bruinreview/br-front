@@ -20,6 +20,7 @@ class Post{
         this.html = obj.html;
         this.slug = obj.slug;
         this.text = obj.text;
+        this.tags = obj.tags;
         this.image = obj.image;
     }
 
@@ -30,7 +31,7 @@ const date = (d) => new Date(d.split('T')[0]).toDateString().substring(4);
 
 const api = new GhostContentAPI({
   url: host,
-  key: key,
+  key: '876bb28735b6e13c96024fd082',
   version: "v3"
 });
 
@@ -58,7 +59,6 @@ export default class Home extends Component{
             .browse({ include: 'tags,authors', formats: ['plaintext', 'html']})
             .then((postData) => {
                 postData.forEach((p) => {
-                    console.log(p);
                     this.setState({posts: [...this.state.posts,
                         new Post({id: p.id,
                                   title: p.title,
@@ -68,6 +68,7 @@ export default class Home extends Component{
                                   author: p.authors[0].name,
                                   slug: p.slug,
                                   html: p.html,
+                                  tags: p.tags.map(u=>u.name),
                                   text: p.plaintext,
                                   image: p.feature_image}
                                 )]});
@@ -108,10 +109,10 @@ export default class Home extends Component{
                                     post.type.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
                                     post.date.toLowerCase().includes(this.state.searchVal.toLowerCase()) ||
                                     post.author.toLowerCase().includes(this.state.searchVal.toLowerCase()))){
-                    return <React.Fragment key={post.id}> <Card key={post.id} imgURL={post.image} id = {post.id} key = {post.id} slug={post.slug} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {true} category={post.category} type={`${post.type}Icon`} author = {post.author} /> </React.Fragment>
+                    return <React.Fragment key={post.id}> <Card tags = {post.tags} key={post.id} imgURL={post.image} id = {post.id} key = {post.id} slug={post.slug} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {true} category={post.category} type={`${post.type}Icon`} author = {post.author} /> </React.Fragment>
                 }
                 else if(post.type !== this.state.filter){
-                    return <React.Fragment key={post.id}> <Card key={post.id} imgURL={post.image} id = {post.id} key={post.id} slug={post.slug} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {false} category={post.category} type={`${post.type}Icon`} author = {post.author} /> </React.Fragment>
+                    return <React.Fragment key={post.id}> <Card key={post.id} tags={post.tags} imgURL={post.image} id = {post.id} key={post.id} slug={post.slug} transitionToFull={this.transitionToFull} title={post.title} date = {post.date} show = {false} category={post.category} type={`${post.type}Icon`} author = {post.author} /> </React.Fragment>
                 }
             })
         return p;
