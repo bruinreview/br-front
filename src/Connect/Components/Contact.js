@@ -67,6 +67,9 @@ export default class Contact extends Component{
             <div className="card" id="contact-card">
               <h3 className="title">Application</h3>
               <hr />
+              <p style={{fontWeight:'normal'}}>At The Bruin Review we're looking for passionate and innovate people to join our team. If that's you, fill out the application below.
+Learn more about The Bruin Review in our virtual info session to the left.
+Applications due by midnight Sunday, April 12.</p>
               {this.state.showForm ?
               <Fade when={this.state.showForm}>
                   <form>
@@ -78,7 +81,7 @@ export default class Contact extends Component{
                               <option value="Writer">Writer</option>
                               <option value="Artist">Artist</option>
                               <option value="Developer">Developer</option>
-                              <option value="Sponsor">Sponsor</option>
+                              <option value="Marketer">Marketer</option>
                               <option value="Other">Other</option>
                           </select>
                           <div style={{width:'182px',borderBottom:'2px solid white'}}/>
