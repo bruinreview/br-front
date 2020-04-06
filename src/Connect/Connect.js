@@ -21,7 +21,7 @@ export default class Print extends Component{
               <div className="main flex justify-center">
                 <div className="left-col">
                   <About />
-                  <Support />
+                  {/*<Support />*/}
 
                 </div>
                 <div className="right-col">
