@@ -6,6 +6,8 @@ import About from './Components/About';
 import Contact from './Components/Contact';
 import GetInvolved from './Components/GetInvolved';
 import Support from './Components/Support';
+import Zoom from 'react-reveal/Zoom';
+import p1 from '../resources/br-about.png';
 
 
 export default class Print extends Component{
