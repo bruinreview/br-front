@@ -8,6 +8,7 @@ import './Print.css'
 import p1 from '../resources/print1.png';
 import p2 from '../resources/print2.png';
 import p3 from '../resources/print3.png';
+import p4 from '../resources/print4.png';
 
 export default class Print extends Component{
     constructor(props){
