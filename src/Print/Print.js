@@ -8,6 +8,7 @@ import './Print.css'
 import p1 from '../resources/print1.png';
 import p2 from '../resources/print2.png';
 import p3 from '../resources/print3.png';
+import p4 from '../resources/print4.png';
 
 export default class Print extends Component{
     constructor(props){
@@ -23,7 +24,13 @@ export default class Print extends Component{
                     <Zoom>
                       <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/BRInauguralEdition.pdf" className="posterCard">
                           <div  style={{backgroundImage:`url(${p1})`}} className="poster"/>
-                          <div className="posterTitle"> Bruin Review Inaugural Edition</div>
+                          <div className="posterTitle"> The Review Inaugural Winter 2019</div>
+                      </a>
+                    </Zoom>
+                    <Zoom>
+                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/The+Review+II+Spring+2020.pdf" className="posterCard">
+                          <div  style={{backgroundImage:`url(${p4})`}} className="poster"/>
+                          <div className="posterTitle"> The Review II Spring 2019</div>
                       </a>
                     </Zoom>
                     <Zoom>
@@ -33,9 +40,9 @@ export default class Print extends Component{
                       </a>
                     </Zoom>
                     <Zoom>
-                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/Flagship+III+(Winter+2020)+(2_7).pdf" className="posterCard">
+                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/The+Review+III+Winter+2020.pdf" className="posterCard">
                           <div  style={{backgroundImage:`url(${p3})`}} className="poster"/>
-                          <div className="posterTitle"> Flagship III Winter 2020</div>
+                          <div className="posterTitle"> The Review III Winter 2020</div>
                       </a>
                     </Zoom>
                   </div>
