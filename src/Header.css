@@ -1,7 +1,7 @@
 .vertical-text {
 	transform: rotate(270deg);
 	transform-origin: 0% 100%;
-    top:565px;
+    top:525px;
     left: 7%;
     position:relative;
 }

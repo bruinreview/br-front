@@ -31,7 +31,6 @@ class Card extends Component{
                   </div>
                   <p className="metadata">{this.props.date}</p>
                   <div className="img" style={{paddingTop: paddingTop, backgroundImage:`url(${this.props.imgURL})`}} ></div>
-                  <Tags className="metadata" tags={["#test1", "#test2", "#test3"]} />
                   <p className="metadata" style={{fontWeight: "bold"}}>by: {this.props.author}</p>
                 </div>
                 </Zoom>

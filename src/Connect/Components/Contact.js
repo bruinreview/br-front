@@ -65,8 +65,11 @@ export default class Contact extends Component{
         return(
             <Fade>
             <div className="card" id="contact-card">
-              <h3 className="title">Contact Us</h3>
+              <h3 className="title">Application</h3>
               <hr />
+              <p style={{fontWeight:'normal'}}>At The Bruin Review we're looking for passionate and innovate people to join our team. If that's you, fill out the application below.
+Learn more about The Bruin Review in our virtual info session to the left.
+Applications due by midnight Sunday, April 12.</p>
               {this.state.showForm ?
               <Fade when={this.state.showForm}>
                   <form>
@@ -74,11 +77,11 @@ export default class Contact extends Component{
                           <input required="true" style={{margin:'10px 0 10px 0', background: '#191919',borderStyle:'none none solid none', borderColor:'white', color:'white', padding:'5px 7px 8px'}} placeholder={'Name'} value={name} onChange={this.handleChange("name")}/>
                       </div>
                       <div className="input flex flex-column">
-                          <select style={{border:'none', width:'180px', color:'white', backgroundColor:'inherit'}}value={role} placeholder={'Role'} onChange={this.handleChange("role")}>
+                          <select style={{border:'none', width:'180px', color:'white', backgroundColor:'#191919'}}value={role} placeholder={'Role'} onChange={this.handleChange("role")}>
                               <option value="Writer">Writer</option>
                               <option value="Artist">Artist</option>
                               <option value="Developer">Developer</option>
-                              <option value="Sponsor">Sponsor</option>
+                              <option value="Marketer">Marketer</option>
                               <option value="Other">Other</option>
                           </select>
                           <div style={{width:'182px',borderBottom:'2px solid white'}}/>
@@ -86,9 +89,9 @@ export default class Contact extends Component{
                       <div className="input flex">
                           <input style={{margin:'10px 0 10px 0', background: '#191919',borderStyle:'none none solid none', borderColor:'white', color:'white', padding:'5px 8px'}} placeholder={'Email'} value={email} onChange={this.handleChange("email")}/>
                       </div>
-                      <p>Tell us about an issue in which you hold a contrarian view.</p>
+                      <p>Tell us about a contrarian view you hold.</p>
                       <textarea onChange={(e)=>{this.setState({r1: e.target.value})}} value={r1} id="response1"/>
-                      <p>Describe a recent project or side-hustle.</p>
+                      <p>Describe a recent project or side-hustle of yours.</p>
                       <textarea onChange = {(f) => {this.setState({r2: f.target.value})}} value = {r2} id="response2"/>
                       <button id="submitBtn" onClick={this.submit}>Submit</button>
                 </form>

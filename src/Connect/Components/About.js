@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Fade} from 'react-reveal';
 import './About.css';
+import p1 from '../../resources/br-about.png';
 
 export default class About extends Component{
     constructor(props){
@@ -13,6 +14,10 @@ export default class About extends Component{
     render(props){
         return(
             <Fade>
+              <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/Spring+2020+BR+Recruitment.pdf" id="aboutCard">
+                  <div  style={{backgroundImage:`url(${p1})`}} className="poster"/>
+                  <div className="posterTitle"> See More</div>
+              </a>
             <div className="aboutCard">
               <h3 className="title">About the Bruin Review</h3>
               <p>The University was once a place of eclectic thought – the gathering of bright minds to encourage the exchange, deliberation, and inspection of ideas. Today, the inverse is true. Universities are proxy for a narrow viewpoint that is easily predictable and left unquestioned. Ideas are no longer submitted as subjects of observation and scrutiny; rather, they are endowed to students as delicacies to be defended at any cost.</p>
