@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './Home.css';
 import Header from '../Header';
+import { Link } from 'react-router-dom';
 import SearchBar from '../Components/SearchBar'
 import Footer from '../Footer';
 import Card from '../Components/Card' ;
 import GhostContentAPI from '@tryghost/content-api'
 import {key, host} from '../constants.js';
-
+import Slide from 'react-reveal/Slide';
+import HamburgerMenu from 'react-hamburger-menu';
 
 
 class Post{
@@ -22,6 +24,7 @@ class Post{
         this.text = obj.text;
         this.tags = obj.tags;
         this.image = obj.image;
+
     }
 
 }
@@ -44,6 +47,8 @@ export default class Home extends Component{
             posts:[],
             filter: '',
             searchVal: '',
+            menuOpen: false,
+            isMobile: window.innerWidth < 480,
             showSearch: false,
             searchFocus: false
         }
@@ -54,7 +59,7 @@ export default class Home extends Component{
 
 
     componentDidMount(){
-
+        window.addEventListener('resize', this.resize);
         api.posts
             .browse({ include: 'tags,authors', formats: ['plaintext', 'html']})
             .then((postData) => {
@@ -97,9 +102,12 @@ export default class Home extends Component{
 
     }
 
+    resize = (e) =>{
+        this.setState({isMobile: window.innerWidth < 480})
+    }
+
     componentWillMount(){
         document.addEventListener('keydown', this.handleSearchBar);
-
     }
 
     filterCards(posts){
@@ -136,6 +144,10 @@ export default class Home extends Component{
 
         }
     }
+    generateMobileCards(posts){
+        return this.filterCards(posts);
+    }
+
     handleFilter(e){
         if(this.state.filter === e.target.id){
             this.setState({filter: ''});
@@ -162,10 +174,44 @@ export default class Home extends Component{
         this.setState({showSearch: !this.state.showSearch});
     }
     render(){
+        let {isMobile} = this.state;
+        if(isMobile)
+        return(
+            <div className="flex flex-column items-center  home">
+                <Slide duration={500} top when={this.state.menuOpen}>
+                    <div style={{zIndex: this.state.menuOpen ? 3 : -1}} className="mobileMenu flex flex-column items-center">
+                        <Link className="no-underline nav pa3" style={{width:'100%'}} to="/apply">apply</Link>
+                        <Link className="no-underline nav pa3" style={{width:'100%'}} to="/print">print</Link>
+                        <Link className="no-underline nav pa3" style={{width:'100%'}} to="/">home</Link>
+                    </div>
+                </Slide>
+                <div className="pt4 pb3 navBar">
+                <HamburgerMenu
+                    isOpen={this.state.menuOpen}
+                    menuClicked={()=>{this.setState({menuOpen: !this.state.menuOpen})}}
+                    width={18}
+                    height={15}
+                    strokeWidth={1}
+                    rotate={0}
+                    color='white'
+                    borderRadius={0}
+                    animationDuration={0.5}
+                />
+                </div>
+                <div className="pt4 pb3"/>
+                <div className="main">
+                <div className="flex-col" style={{'height':'100%'}}>
+                {this.generateMobileCards(this.state.posts)}
+                </div>
+                </div>
+            </div>
+        );
+        else
         return(
             <div className="flex justify-center home">
                 <Header clickSearch={this.clickSearch}/>
                 <div className="main">
+                    <div style={{color:'white'}}>{this.state.isMobile ? "MOBILE" : "DESKTOP"}</div>
                     <SearchBar inputRef={this.inputRef} searchFocus={this.state.searchFocus} searchChange={this.searchChange} showSearch = {this.state.showSearch} searchVal ={this.state.searchVal}/>
                     <div className="flex justify-center" style={{'height':'100%'}}>
                         <div className="feature">

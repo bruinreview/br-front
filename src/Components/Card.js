@@ -25,9 +25,9 @@ class Card extends Component{
                 <Zoom appear style={{height:500}} collapse fraction={1} when={this.props.show} delay={delay*50}>
                 <div onClick={()=>{this.props.transitionToFull(this.props.slug)}}
                  className ={`${this.props.category}-card card`}>
-                  <div className="flex justify-between title">
-                      <p className="article-title">{this.props.title}</p>
-                      <div className= {`iconType ${this.props.type}`}/>
+                  <div className="flex justify-between">
+                      <div className="article-title">{this.props.title}</div>
+                      {/*<div className= {`iconType ${this.props.type}`}/>*/}
                   </div>
                   <p className="metadata">{this.props.date}</p>
                   <div className="img" style={{paddingTop: paddingTop, backgroundImage:`url(${this.props.imgURL})`}} ></div>

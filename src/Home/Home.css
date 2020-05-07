@@ -7,6 +7,19 @@
     width: 85%;
     /* background-color: #0A0A0A; */
 }
+.mobileMenu{
+    background-color:rgba(7,7,7,0.8);
+    position:fixed;
+    z-index:2;
+    padding-top:50px;
+    width:100%;
+}
+.navBar{
+    position:fixed;
+    z-index:3;
+    width:85%;
+    background-color: #070707;
+}
 
 .feature{
     width:48%;
