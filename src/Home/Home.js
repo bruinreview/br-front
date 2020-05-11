@@ -60,9 +60,11 @@ export default class Home extends Component{
 
     componentDidMount(){
         window.addEventListener('resize', this.resize);
+        console.log()
         api.posts
-            .browse({ include: 'tags,authors', formats: ['plaintext', 'html']})
+            .browse({limit:'all', include: 'tags,authors', formats: ['plaintext', 'html']})
             .then((postData) => {
+                console.log(postData);
                 postData.forEach((p) => {
                     this.setState({posts: [...this.state.posts,
                         new Post({id: p.id,
@@ -178,13 +180,11 @@ export default class Home extends Component{
         if(isMobile)
         return(
             <div className="flex flex-column items-center  home">
-                <Slide duration={500} top when={this.state.menuOpen}>
-                    <div style={{zIndex: this.state.menuOpen ? 3 : -1}} className="mobileMenu flex flex-column items-center">
+                    <div style={{transform: this.state.menuOpen ? 'translateY(0)' : 'translateY(-100%)'}} className="mobileMenu flex flex-column items-center">
                         <Link className="no-underline nav pa3" style={{width:'100%'}} to="/apply">apply</Link>
                         <Link className="no-underline nav pa3" style={{width:'100%'}} to="/print">print</Link>
                         <Link className="no-underline nav pa3" style={{width:'100%'}} to="/">home</Link>
                     </div>
-                </Slide>
                 <div className="pt4 pb3 navBar">
                 <HamburgerMenu
                     isOpen={this.state.menuOpen}
