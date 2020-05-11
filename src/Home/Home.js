@@ -56,7 +56,7 @@ export default class Home extends Component{
     componentDidMount(){
 
         api.posts
-            .browse({ include: 'tags,authors', formats: ['plaintext', 'html']})
+            .browse({limit: 'all', include: 'tags,authors', formats: ['plaintext', 'html']})
             .then((postData) => {
                 postData.forEach((p) => {
                     this.setState({posts: [...this.state.posts,
