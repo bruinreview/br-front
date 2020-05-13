@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
-import {Zoom} from 'react-reveal';
-import GhostContentAPI from '@tryghost/content-api'
+import {Zoom,Fade} from 'react-reveal';
+import MobileNav from '../Components/MobileNav';
+import GhostContentAPI from '@tryghost/content-api';
 import {key, host, url} from '../constants.js';
 import './Article.css'
 import {
@@ -67,10 +68,15 @@ export default class Article extends Component{
   constructor(props){
       super(props);
       this.state = {
+          isMobile: window.innerWidth<480,
           post: new Post(defa),
       }
   }
+    resize = (e) =>{
+        this.setState({isMobile: window.innerWidth < 480})
+    }
   componentDidMount(){
+        window.addEventListener('resize', this.resize);
         api.posts.read({slug:this.props.match.params.articleID, include: 'tags,authors'},{formats: ['html', 'plaintext']})
             .then((p) => {
                 console.log(p);
@@ -94,15 +100,38 @@ export default class Article extends Component{
   }
   render(){
       let {location, match} = this.props;
-      console.log(this.state.post);
       let delay1 = Math.floor(Math.random() * 5);
       let delay2 = Math.floor(Math.random() * 5);
       let delay3 = Math.floor(Math.random() * 5);
-      // console.log(location);
       let image = null;
-      console.log(this.state.post.tags);
       if(this.state.post.image)
-        image = <img alt="" style={{borderRadius:'10px', paddingBottom:'32px'}} src={this.state.post.image}/>
+        image = <img alt="" className={this.state.isMobile ? 'articleMobileImage' : 'articleImage'}  src={this.state.post.image}/>
+      if(this.state.isMobile)
+      return(
+        <div className="flex-column justify-center">
+              <MobileNav />
+              <div className="mobileArticle">
+                  <div className="articleMobileImage" style={{backgroundImage:`url(${this.state.post.image})`}}/>
+                  <div className="pa4">
+                  <h3 id="article-title">{this.state.post.title}</h3>
+                  <Fade>
+                  <div className="articleContent" dangerouslySetInnerHTML={{ __html: this.state.post.html }}/>
+                  <div className="articleContent pb3">Written By: {this.state.post.author}</div>
+                  <div className="articleContent">{this.state.post.date}</div>
+                  </Fade>
+                  <hr className="mt4"/>
+                  <div style={{width:'100%'}} className="pv3 flex flex-row justify-between">
+                  <FacebookShareButton children={<FacebookIcon size={40} round={true}/>} url={`${url}/article/${this.props.match.params.articleID}`}/>
+                  <TwitterShareButton  children={<TwitterIcon  size={40} round={true}/>} url={`${url}/article/${this.props.match.params.articleID}`}/>
+                  <LinkedinShareButton children={<LinkedinIcon size={40} round={true}/>} url={`${url}/article/${this.props.match.params.articleID}`}/>
+                  <EmailShareButton children={<EmailIcon size={40} round={true}/>} url={`${url}/article/${this.props.match.params.articleID}`}/>
+                  </div>
+                  </div>
+              </div>
+        </div>
+
+      );
+      else
       return(
         <div className="flex justify-center">
           <Header />

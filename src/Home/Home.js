@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../Components/SearchBar'
 import Footer from '../Footer';
 import Card from '../Components/Card' ;
+import MobileNav from '../Components/MobileNav';
 import GhostContentAPI from '@tryghost/content-api'
 import {key, host} from '../constants.js';
 import Slide from 'react-reveal/Slide';
@@ -60,7 +61,6 @@ export default class Home extends Component{
 
     componentDidMount(){
         window.addEventListener('resize', this.resize);
-        console.log()
         api.posts
             .browse({limit:'all', include: 'tags,authors', formats: ['plaintext', 'html']})
             .then((postData) => {
@@ -176,28 +176,10 @@ export default class Home extends Component{
         this.setState({showSearch: !this.state.showSearch});
     }
     render(){
-        let {isMobile} = this.state;
-        if(isMobile)
+        if(this.state.isMobile)
         return(
             <div className="flex flex-column items-center  home">
-                    <div style={{transform: this.state.menuOpen ? 'translateY(0)' : 'translateY(-100%)'}} className="mobileMenu flex flex-column items-center">
-                        <Link className="no-underline nav pa3" style={{width:'100%'}} to="/apply">apply</Link>
-                        <Link className="no-underline nav pa3" style={{width:'100%'}} to="/print">print</Link>
-                        <Link className="no-underline nav pa3" style={{width:'100%'}} to="/">home</Link>
-                    </div>
-                <div className="pt4 pb3 navBar">
-                <HamburgerMenu
-                    isOpen={this.state.menuOpen}
-                    menuClicked={()=>{this.setState({menuOpen: !this.state.menuOpen})}}
-                    width={18}
-                    height={15}
-                    strokeWidth={1}
-                    rotate={0}
-                    color='white'
-                    borderRadius={0}
-                    animationDuration={0.5}
-                />
-                </div>
+                <MobileNav />
                 <div className="pt4 pb3"/>
                 <div className="main">
                 <div className="flex-col" style={{'height':'100%'}}>
@@ -211,7 +193,6 @@ export default class Home extends Component{
             <div className="flex justify-center home">
                 <Header clickSearch={this.clickSearch}/>
                 <div className="main">
-                    <div style={{color:'white'}}>{this.state.isMobile ? "MOBILE" : "DESKTOP"}</div>
                     <SearchBar inputRef={this.inputRef} searchFocus={this.state.searchFocus} searchChange={this.searchChange} showSearch = {this.state.showSearch} searchVal ={this.state.searchVal}/>
                     <div className="flex justify-center" style={{'height':'100%'}}>
                         <div className="feature">

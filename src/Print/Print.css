@@ -11,10 +11,17 @@
     flex-direction: column;
     color:white;
     text-decoration: none;
+}
+.posterCardMobile{
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color:white;
+    text-decoration: none;
 
 }
 .poster{
-    background-image:url('../resources/print1.png');
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size:cover;
