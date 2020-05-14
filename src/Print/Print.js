@@ -62,14 +62,18 @@ export default class Print extends Component{
         return(
           <div className="flex items-center flex-column home">
                 <MobileNav/>
-                  {printLinks.map((obj)=>
-                      <div className="posterCardMobile">
-                          <img  src={obj.img} className="poster"/>
-                          <div className="posterTitle"> {obj.title}</div>
-                          {/*  <a target="_blank" style={{textDecoration:'none', color:'white'}} href={obj.link}>
-                          // </a>*/}
-                      </div>
-                  )}
+                <div className="main">
+                    <div className="flex-col" style={{'height':'100%'}}>
+                          {printLinks.map((obj)=>
+                              <div className="posterCardMobile">
+                                  <img  src={obj.img} className="poster"/>
+                                  <div className="posterTitle"> {obj.title}</div>
+                                  {/*  <a target="_blank" style={{textDecoration:'none', color:'white'}} href={obj.link}>
+                                  // </a>*/}
+                              </div>
+                          )}
+                    </div>
+                </div>
           </div>
 
         );
