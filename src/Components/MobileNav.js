@@ -33,7 +33,7 @@ export default class MobileNav extends Component{
                     borderRadius={0}
                     animationDuration={0.5}/>
                 {showBar ?  <div style={{width:'100%'}} className="flex flex-row"><input ref={(input) => {this.inputRef=input}} className="mobileSearchInput" type="text" value = {this.props.searchVal} onChange={this.props.searchChange} placeholder="Search"/>
-                <img style={{paddingLeft:'5px', width:'35px'}} src={search}/></div> : <div/> }
+                <img style={{paddingLeft:'5px', width:'35px', height:'35px'}} src={search}/></div> : <div/> }
 
                 </div>
             </React.Fragment>
