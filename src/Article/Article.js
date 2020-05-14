@@ -109,7 +109,7 @@ export default class Article extends Component{
       if(this.state.isMobile)
       return(
         <div className="flex-column justify-center">
-              <MobileNav />
+              <MobileNav showBar={false}/>
               <div className="mobileArticle">
                   <div className="articleMobileImage" style={{backgroundImage:`url(${this.state.post.image})`}}/>
                   <div className="pa4">

@@ -64,7 +64,6 @@ export default class Home extends Component{
         api.posts
             .browse({limit:'all', include: 'tags,authors', formats: ['plaintext', 'html']})
             .then((postData) => {
-                console.log(postData);
                 postData.forEach((p) => {
                     this.setState({posts: [...this.state.posts,
                         new Post({id: p.id,
@@ -105,7 +104,8 @@ export default class Home extends Component{
     }
 
     resize = (e) =>{
-        this.setState({isMobile: window.innerWidth < 480})
+        console.log(e.target.outerWidth);
+        this.setState({isMobile: e.target.outerWidth < 480})
     }
 
     componentWillMount(){
@@ -168,7 +168,7 @@ export default class Home extends Component{
     }
 
     transitionToFull = (e)=>{
-        this.setState({searchVal:'$'})
+        // this.setState({searchVal:'$'})
         setTimeout(()=>{this.props.history.push({pathname: `/article/${e}`})}, 500);
     }
 
@@ -179,7 +179,7 @@ export default class Home extends Component{
         if(this.state.isMobile)
         return(
             <div className="flex flex-column items-center  home">
-                <MobileNav />
+                <MobileNav showBar={true} inputRef={this.inputRef} searchFocus={this.state.searchFocus} searchChange={this.searchChange}  searchVal ={this.state.searchVal} />
                 <div className="pt4 pb3"/>
                 <div className="main">
                 <div className="flex-col" style={{'height':'100%'}}>

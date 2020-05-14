@@ -10,6 +10,38 @@ import p1 from '../resources/print1.png';
 import p2 from '../resources/print2.png';
 import p3 from '../resources/print3.png';
 import p4 from '../resources/print4.png';
+import p5 from '../resources/print5.png';
+
+
+const printLinks = [
+    {
+        img: p1,
+        title:  'The Review Inaugural Winter 2019',
+        link: 'https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/BRInauguralEdition.pdf'
+    },
+    {
+        img: p4,
+        title:  'The Review II Spring 2019',
+        link: 'https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/The+Review+II+Spring+2020.pdf'
+    },
+    {
+        img: p3,
+        title:  'The Review III Winter 2020',
+        link: 'https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/The+Review+III+Winter+2020.pdf'
+    },
+    {
+        img: p2,
+        title:  'News in Review Fall 2019',
+        link: 'https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/News+in+Review+Fall+2019+v2.pdf'
+    },
+    {
+        img: p5,
+        title:  'News in Review II Winter 2020',
+        link: 'https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/News+in+Review+II+Winter+2020.pdf'
+    },
+]
+
+
 
 export default class Print extends Component{
     constructor(props){
@@ -31,22 +63,12 @@ export default class Print extends Component{
           <div className="flex justify-center" style={{height:'100%'}}>
             <MobileNav/>
                   <div className="flex mt4 pt2 items-center flex-column" style={{height:'100%',width:'85%'}}>
-                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/BRInauguralEdition.pdf" className="posterCardMobile">
-                          <img  src={p1} className="poster"/>
-                          <div className="posterTitle"> The Review Inaugural Winter 2019</div>
-                      </a>
-                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/The+Review+II+Spring+2020.pdf" className="posterCardMobile">
-                          <img src={p4} className="poster"/>
-                          <div className="posterTitle"> The Review II Spring 2019</div>
-                      </a>
-                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/News+in+Review+Fall+2019+v2.pdf" className="posterCardMobile">
-                          <img src={p2} className="poster"/>
-                          <div className="posterTitle"> News in Review Fall 2019</div>
-                      </a>
-                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/The+Review+III+Winter+2020.pdf" className="posterCardMobile">
-                          <img src={p3} className="poster"/>
-                          <div className="posterTitle"> The Review III Winter 2020</div>
-                      </a>
+                      {printLinks.map((obj)=>
+                          <a target="_blank" href={obj.link} className="posterCardMobile">
+                              <img  src={obj.img} className="poster"/>
+                              <div className="posterTitle"> {obj.title}</div>
+                          </a>
+                      )}
                   </div>
 
           </div>
@@ -56,30 +78,14 @@ export default class Print extends Component{
         return(
           <div className="flex justify-center home">
               <Header />
-                  <div className="main flex items-start flex-row">
+                  <div className="main flex items-start flex-wrap">
                     <Zoom>
-                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/BRInauguralEdition.pdf" className="posterCard">
-                          <div  style={{backgroundImage:`url(${p1})`}} className="poster"/>
-                          <div className="posterTitle"> The Review Inaugural Winter 2019</div>
-                      </a>
-                    </Zoom>
-                    <Zoom>
-                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/The+Review+II+Spring+2020.pdf" className="posterCard">
-                          <div  style={{backgroundImage:`url(${p4})`}} className="poster"/>
-                          <div className="posterTitle"> The Review II Spring 2019</div>
-                      </a>
-                    </Zoom>
-                    <Zoom>
-                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/News+in+Review+Fall+2019+v2.pdf" className="posterCard">
-                          <div  style={{backgroundImage:`url(${p2})`}} className="poster"/>
-                          <div className="posterTitle"> News in Review Fall 2019</div>
-                      </a>
-                    </Zoom>
-                    <Zoom>
-                      <a target="_blank" href="https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/The+Review+III+Winter+2020.pdf" className="posterCard">
-                          <div  style={{backgroundImage:`url(${p3})`}} className="poster"/>
-                          <div className="posterTitle"> The Review III Winter 2020</div>
-                      </a>
+                      {printLinks.map((obj)=>
+                          <a target="_blank" href={obj.link} className="posterCard">
+                              <img  src={obj.img} className="poster"/>
+                              <div className="posterTitle"> {obj.title}</div>
+                          </a>
+                      )}
                     </Zoom>
                   </div>
               <Footer />

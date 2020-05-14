@@ -8,11 +8,28 @@
     padding-top:50px;
     width:100%;
 }
+.mobileSearchInput{
+    width:85%;
+    padding: 5px;
+    background-color: inherit;
+    color:white;
+    font-size:20px;
+    font-family:'freight-sans';
+	font-weight: bold;
+    margin-left: 20px;
+    border-color: rgba(255,255,255);
+    border-style: none none solid none;
+}
 .navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
     position:fixed;
+    align-items: center;
     z-index:3;
     width:100%;
-    padding:20px;
+    padding:15px;
     padding-left:7.5%;
+    padding-right:7.5%;
     background-color: #070707;
 }

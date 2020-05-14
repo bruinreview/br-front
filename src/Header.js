@@ -16,7 +16,7 @@ export default class Header extends Component{
                 <div className="flex vertical-text">
                     <div className="line-bottom"></div>
                         <div className="searchIcon" onClick={this.props.clickSearch}/>
-                        <Link className="no-underline ph3 nav" to="/apply">apply</Link>
+                        <Link className="no-underline ph3 nav" to="/info">info</Link>
                         <Link className="no-underline ph3 nav" to="/print">print</Link>
                         <Link className="no-underline ph3 nav" to="/">home</Link>
                     <div className="line-top"></div>
