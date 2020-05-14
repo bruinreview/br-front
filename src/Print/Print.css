@@ -13,7 +13,6 @@
     text-decoration: none;
 }
 .posterCardMobile{
-    margin: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;

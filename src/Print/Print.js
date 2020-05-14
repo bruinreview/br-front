@@ -65,11 +65,11 @@ export default class Print extends Component{
                 <div className="main">
                     <div className="flex-col" style={{'height':'100%'}}>
                           {printLinks.map((obj)=>
-                              <div className="posterCardMobile">
-                                  <img  src={obj.img} className="poster"/>
-                                  <div className="posterTitle"> {obj.title}</div>
-                                  {/*  <a target="_blank" style={{textDecoration:'none', color:'white'}} href={obj.link}>
-                                  // </a>*/}
+                              <div className="posterCardMobile mv3">
+                                  <a target="_blank" style={{textDecoration:'none', color:'white'}} href={obj.link}>
+                                      <img  src={obj.img} className="poster"/>
+                                      <div className="posterTitle"> {obj.title}</div>
+                                  </a>
                               </div>
                           )}
                     </div>
