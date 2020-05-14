@@ -62,13 +62,13 @@ export default class Print extends Component{
         return(
           <div className="flex justify-center home">
             <MobileNav/>
-                  <div className="flex mt4 pt2 items-center flex-column" style={{height:'100%',width:'85%'}}>
+                  <div className="flex mt4 pt2 flex-column" style={{height:'100%',width:'85%'}}>
                       {printLinks.map((obj)=>
                           <div className="posterCardMobile">
-                              <a target="_blank" style={{textDecoration:'none', color:'white'}} href={obj.link}>
-                                  <img  src={obj.img} className="poster"/>
-                                  <div className="posterTitle"> {obj.title}</div>
-                              </a>
+                              <img  src={obj.img} className="poster"/>
+                              <div className="posterTitle"> {obj.title}</div>
+                              {/*  <a target="_blank" style={{textDecoration:'none', color:'white'}} href={obj.link}>
+                              // </a>*/}
                           </div>
                       )}
                   </div>
