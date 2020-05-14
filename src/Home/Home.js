@@ -62,7 +62,7 @@ export default class Home extends Component{
     componentDidMount(){
         window.addEventListener('resize', this.resize);
         api.posts
-            .browse({limit:'all', include: 'tags,authors', formats: ['plaintext', 'html']})
+            .browse({limit: 'all', include: 'tags,authors', formats: ['plaintext', 'html']})
             .then((postData) => {
                 postData.forEach((p) => {
                     this.setState({posts: [...this.state.posts,
