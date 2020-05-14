@@ -13,22 +13,19 @@
     text-decoration: none;
 }
 .posterCardMobile{
-    padding-top:70%;
     margin: 20px;
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     color:white;
     text-decoration: none;
-
 }
 .poster{
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size:cover;
     width:100%;
-    height:100%;
+    height:450px;
 }
 
 .posterTitle{
