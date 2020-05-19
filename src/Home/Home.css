@@ -1,47 +1,53 @@
-.home{
-    width:100%;
-    height:100%;
+.home {
+	width: 100%;
+	height: 100%;
 }
-.main{
-    margin-top: 20px;
-    width: 85%;
-    /* background-color: #0A0A0A; */
-}
-
-.feature{
-    width:48%;
-    height:100%;
-    margin: 0 1% 0 1%;
-    display:flex;
-    flex-direction:column;
-    /* background-color: #111; */
+.main {
+	margin-top: 20px;
+	width: 85%;
+	/* background-color: #0A0A0A; */
 }
 
-.normal{
-    width:22%;
-    margin: 0 1% 0 1%;
-    /* background-color: #111; */
+.feature {
+	width: 48%;
+	height: 100%;
+	margin: 0 1% 0 1%;
+	display: flex;
+	flex-direction: column;
+	/* background-color: #111; */
 }
-.normal > div{
-    width:100%;
-    margin: 0 1% 0 1%;
-    /* background-color: #111; */
+
+.normal {
+	width: 22%;
+	margin: 0 1% 0 1%;
+	/* background-color: #111; */
 }
-.iconType{
-    width:27px;
-    height:27px;
-    background-size: cover;
-    position:relative;
+
+.normalTab {
+	width: 33%;
+	margin: 0 1% 0 1%;
+	/* background-color: #111; */
 }
-.profileIcon{
-    background-image: url('../resources/icons_profile.png');
+.normal > div {
+	width: 100%;
+	margin: 0 1% 0 1%;
+	/* background-color: #111; */
 }
-.audioIcon{
-    background-image: url('../resources/icons_audio.png');
+.iconType {
+	width: 27px;
+	height: 27px;
+	background-size: cover;
+	position: relative;
 }
-.videoIcon{
-    background-image: url('../resources/icons_video.png');
+.profileIcon {
+	background-image: url('../resources/icons_profile.png');
 }
-.regularIcon{
-    background-image: url('../resources/icons_type.png');
+.audioIcon {
+	background-image: url('../resources/icons_audio.png');
+}
+.videoIcon {
+	background-image: url('../resources/icons_video.png');
+}
+.regularIcon {
+	background-image: url('../resources/icons_type.png');
 }
