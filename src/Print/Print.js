@@ -11,6 +11,7 @@ import p2 from '../resources/print2.png';
 import p3 from '../resources/print3.png';
 import p4 from '../resources/print4.png';
 import p5 from '../resources/print5.png';
+import p6 from '../resources/print6.png';
 
 
 const printLinks = [
