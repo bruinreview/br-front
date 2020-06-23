@@ -39,6 +39,11 @@ const printLinks = [
         title:  'News in Review II Winter 2020',
         link: 'https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/News+in+Review+II+Winter+2020.pdf'
     },
+    {
+        img: p6,
+        title: 'The Review IV Spring 2020',
+        link: 'https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/The+Review+IV+Spring+2020.pdf'
+    }
 ]
 
 
