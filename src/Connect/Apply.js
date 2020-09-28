@@ -125,6 +125,7 @@ export default class Apply extends Component {
                   >
                     <a
                       target="_blank"
+                      style={{ textDecoration: "none" }}
                       href=" https://elasticbeanstalk-us-west-1-133954069817.s3.us-west-1.amazonaws.com/Fall%202020%20BR%20Recruitment%20.pdf"
                     >
                       <div
@@ -135,23 +136,24 @@ export default class Apply extends Component {
                           backgroundImage: `url(${p1})`,
                         }}
                       />
+                      {this.state.pptHovered && (
+                        <div
+                          className="flex justify-center items-center"
+                          style={{
+                            cursor: "pointer",
+                            color: "white",
+                            width: "100%",
+                            height: "100%",
+                            backgroundColor: "rgba(18,18,18,0.8)",
+                            fontSize: "25px",
+                            position: "absolute",
+                            top: "0px",
+                          }}
+                        >
+                          Click to See More
+                        </div>
+                      )}
                     </a>
-                    {this.state.pptHovered && (
-                      <div
-                        className="flex justify-center items-center"
-                        style={{
-                          cursor: "pointer",
-                          width: "100%",
-                          height: "100%",
-                          backgroundColor: "rgba(18,18,18,0.8)",
-                          fontSize: "25px",
-                          position: "absolute",
-                          top: "0px",
-                        }}
-                      >
-                        Click to See More
-                      </div>
-                    )}
                   </div>
                   <a
                     target="_blank"
