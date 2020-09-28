@@ -4,14 +4,12 @@ import Home from "./Home/Home";
 import Shop from "./Shop/Shop";
 import Article from "./Article/Article";
 import Connect from "./Connect/Connect";
+import Apply from "./Connect/Apply";
 import Print from "./Print/Print";
 import Header from "./Header";
 import logo from "./logo.svg";
 import "./resources/animate.css";
 import "./App.css";
-function Apply(props) {
-  return <div />;
-}
 
 function App() {
   return (
