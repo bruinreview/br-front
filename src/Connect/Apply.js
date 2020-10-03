@@ -131,8 +131,8 @@ export default class Apply extends Component {
                       <div
                         style={{
                           width: "100%",
-                          height: "400px",
-                          backgroundSize: "contain",
+                          paddingTop: "50%",
+                          backgroundSize: "cover",
                           backgroundImage: `url(${p1})`,
                         }}
                       />
@@ -191,7 +191,26 @@ export default class Apply extends Component {
                 </div>
               </Fade>
             </div>
-            <div className="right-col"></div>
+            <div className="right-col">
+              <div className="card">
+                <h3 className="title">Welcome to the Bruin Review</h3>
+                <hr />
+                We're a society of independent thinkers who care about bringing
+                discourse back to UCLA and we want you to join us. Fall
+                applications are now open! Here are the important dates:
+                <li>
+                  Info Session: October 7 @ 7 pm on Janns w/ masks (Zoom Info
+                  Session @ 8:30 pm)
+                </li>
+                <li>Applications Due: October 11 @ 11:59 pm</li>
+                You can check out our complete works under the "Print" tab and
+                read our articles on the home page. These only scrape the
+                surface of what we do here, but they're a great example of how
+                our six departments work together to promote diversity of
+                thought. Click the pdf to learn more!
+              </div>
+              <About />
+            </div>
           </div>
           <Footer />
         </div>
