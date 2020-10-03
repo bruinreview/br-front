@@ -1,7 +1,6 @@
-import React, { Component, useState } from "react";
-import { Zoom, Fade } from "react-reveal";
+import React, { useState } from "react";
+import { Fade } from "react-reveal";
 import "./About.css";
-import Tags from "../../Components/Tags";
 import { PayPalButton } from "react-paypal-button-v2";
 
 import Airtable from "airtable";
@@ -9,9 +8,7 @@ export default function Support(props) {
   var base = new Airtable({ apiKey: "key80rQbZcgw1Kmez" }).base(
     "appRLtdMJcbBUgDG3"
   );
-  const [option, setOption] = useState("Subscribe");
   const [amount, setAmount] = useState("");
-  const [showForm, toggleShowForm] = useState(true);
   return (
     <Fade>
       <div className="card">
@@ -25,31 +22,12 @@ export default function Support(props) {
           </li>
           <li> Vinyl Bruin Review stickers </li>
         </p>
-        <Fade when={showForm}>
+        <Fade>
           <form>
-            <div style={{ width: "100%" }} className="input flex flex-column">
-              {/*<select
-                style={{
-                  border: "none",
-                  width: "100",
-                  color: "white",
-                  backgroundColor: "#191919",
-                }}
-                value={option}
-                placeholder={"Role"}
-                onChange={(e) => setOption(e.target.value)}
-              >
-                <option value="Donate">Donate</option>
-                <option value="Subscribe">Subscribe</option>
-              </select>
-              <div
-                style={{
-                  width: "100%",
-                  paddingTop: "5px",
-                  borderBottom: "2px solid white",
-                }}
-              />*/}
-            </div>
+            <div
+              style={{ width: "100%" }}
+              className="input flex flex-column"
+            ></div>
             <div className="input flex items-center">
               <div className="ph1">$</div>
               <input

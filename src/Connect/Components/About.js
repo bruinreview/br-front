@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Fade } from "react-reveal";
 import "./About.css";
-import p1 from "../../resources/br-about.png";
 
 export default class About extends Component {
   constructor(props) {

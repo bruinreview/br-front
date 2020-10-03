@@ -4,13 +4,8 @@ import Header from "../Header";
 import Footer from "../Footer";
 import "./Connect.css";
 import About from "./Components/About";
-import Contact from "./Components/Contact";
-import GetInvolved from "./Components/GetInvolved";
-import Support from "./Components/Support";
-import Zoom from "react-reveal/Zoom";
 import MobileNav from "../Components/MobileNav";
 import p1 from "../resources/fall.png";
-import { PayPalButton } from "react-paypal-button-v2";
 
 import Airtable from "airtable";
 

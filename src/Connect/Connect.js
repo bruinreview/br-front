@@ -1,15 +1,12 @@
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import { Fade } from "react-reveal";
 import Header from "../Header";
 import Footer from "../Footer";
 import "./Connect.css";
 import About from "./Components/About";
-import Contact from "./Components/Contact";
 import GetInvolved from "./Components/GetInvolved";
 import Support from "./Components/Support";
-import Zoom from "react-reveal/Zoom";
 import MobileNav from "../Components/MobileNav";
-import p1 from "../resources/br-about.png";
 import { PayPalButton } from "react-paypal-button-v2";
 
 import Airtable from "airtable";
@@ -100,29 +97,7 @@ export default class Print extends Component {
                   <div
                     style={{ width: "100%" }}
                     className="input flex flex-column"
-                  >
-                    {/*<select
-                style={{
-                  border: "none",
-                  width: "100",
-                  color: "white",
-                  backgroundColor: "#191919",
-                }}
-                value={option}
-                placeholder={"Role"}
-                onChange={(e) => setOption(e.target.value)}
-              >
-                <option value="Donate">Donate</option>
-                <option value="Subscribe">Subscribe</option>
-              </select>
-              <div
-                style={{
-                  width: "100%",
-                  paddingTop: "5px",
-                  borderBottom: "2px solid white",
-                }}
-              />*/}
-                  </div>
+                  ></div>
                   <div className="input flex items-center">
                     <div className="ph1">$</div>
                     <input
@@ -143,7 +118,7 @@ export default class Print extends Component {
                       }
                     />
                   </div>
-                  {this.state.amount == "45" || this.state.amount == "50" ? (
+                  {this.state.amount === "45" || this.state.amount === "50" ? (
                     <PayPalButton
                       amount={this.state.amount}
                       style={{ layout: "horizontal" }}
