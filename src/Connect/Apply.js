@@ -42,8 +42,11 @@ export default class Apply extends Component {
             discourse back to UCLA and we want you to join us. Fall applications
             are now open! Here are the important dates:
             <li>
-              Info Session: October 7 @ 7 pm on Janns w/ masks (Zoom Info
-              Session @ 8:30 pm)
+              Info Session: October 7 @ 7 pm on Janns w/ masks (
+              <a href="https://ucla.zoom.us/j/95596344714">
+                Zoom Info Session{" "}
+              </a>
+              @ 8:30 pm)
             </li>
             <li>Applications Due: October 11 @ 11:59 pm</li>
             You can check out our complete works under the "Print" tab and read
