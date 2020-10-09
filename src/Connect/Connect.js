@@ -1,37 +1,34 @@
-import React, { Component } from "react";
-import { Fade } from "react-reveal";
-import Header from "../Header";
-import Footer from "../Footer";
-import "./Connect.css";
-import About from "./Components/About";
-import GetInvolved from "./Components/GetInvolved";
-import Support from "./Components/Support";
-import MobileNav from "../Components/MobileNav";
-import { PayPalButton } from "react-paypal-button-v2";
-
-import Airtable from "airtable";
+import Airtable from 'airtable'
+import React, { Component } from 'react'
+import { PayPalButton } from 'react-paypal-button-v2'
+import { Fade } from 'react-reveal'
+import MobileNav from '../Components/MobileNav'
+import Footer from '../Footer'
+import Header from '../Header'
+import './Connect.css'
+import About from './Components/About'
+import GetInvolved from './Components/GetInvolved'
+import Support from './Components/Support'
 
 export default class Print extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       isMobile: window.innerWidth < 480,
-      amount: "",
-    };
+      amount: '',
+    }
   }
-  resize = (e) => {
+  resize = e => {
     this.setState({
       isMobile: e.target.innerWidth < 480,
-    });
-  };
+    })
+  }
   componentDidMount() {
-    window.addEventListener("resize", this.resize);
+    window.addEventListener('resize', this.resize)
   }
   render() {
-    var base = new Airtable({ apiKey: "key80rQbZcgw1Kmez" }).base(
-      "appRLtdMJcbBUgDG3"
-    );
-    if (this.state.isMobile)
+    const base = new Airtable({ apiKey: 'key80rQbZcgw1Kmez' }).base('appRLtdMJcbBUgDG3')
+    if (this.state.isMobile) {
       return (
         <div className="flex justify-center home">
           <MobileNav showBar={false} />
@@ -39,131 +36,102 @@ export default class Print extends Component {
             <div className="mobileAbout">
               <div className="pv3 mobileAboutTitle">About the Bruin Review</div>
               <p>
-                The University was once a place of eclectic thought – the
-                gathering of bright minds to encourage the exchange,
-                deliberation, and inspection of ideas. Today, the inverse is
-                true. Universities are proxy for a narrow viewpoint that is
-                easily predictable and left unquestioned. Ideas are no longer
-                submitted as subjects of observation and scrutiny; rather, they
-                are endowed to students as delicacies to be defended at any
-                cost.
+                The University was once a place of eclectic thought – the gathering of bright minds to encourage the
+                exchange, deliberation, and inspection of ideas. Today, the inverse is true. Universities are proxy for
+                a narrow viewpoint that is easily predictable and left unquestioned. Ideas are no longer submitted as
+                subjects of observation and scrutiny; rather, they are endowed to students as delicacies to be defended
+                at any cost.
               </p>
               <p>
-                The Bruin Review was founded to end this soft treatment of
-                ideas. Thought should be forged, not coddled. The University has
-                lost its edge as a tool for truth. Instead, it is a cog in the
-                wheel of ideology. The Review aims to bring back those tools for
-                the scrutiny of thought. To learn is to be curious, and to be
+                The Bruin Review was founded to end this soft treatment of ideas. Thought should be forged, not coddled.
+                The University has lost its edge as a tool for truth. Instead, it is a cog in the wheel of ideology. The
+                Review aims to bring back those tools for the scrutiny of thought. To learn is to be curious, and to be
                 curious is to question. The Review is here to question.
               </p>
               <p>
-                Universities should be less similar to a cultivated garden of
-                monolithic ideals and more like a battleground of beliefs.
-                Buckle up, because we plan to pick fights where dissension is
-                rarely fostered and disputation seldom tolerated. Contention is
-                our middle name.
+                Universities should be less similar to a cultivated garden of monolithic ideals and more like a
+                battleground of beliefs. Buckle up, because we plan to pick fights where dissension is rarely fostered
+                and disputation seldom tolerated. Contention is our middle name.
               </p>
               <p>
-                The Bruin Review will always push to be on the edge of truth, at
-                times nearly falling off. Our goal is to present diverse
-                arguments on all applicable topics, transcendent of partisan
-                semantics. First and foremost, we are a society of those who
-                enjoy civil discourse and pushing the limits of their intellect.
-                Second, we are a medium for any responsible message. Our
-                publication does not exist to bolster rumors, gossip, or
-                pontificate over national politics. We hope to bring forward
-                dialogue on issues which affect students’ lives and challenge
-                the status quo of ideas. Not through simple debate, but by
-                productive and sympathetic discussion of things sparsely
-                mentioned.
+                The Bruin Review will always push to be on the edge of truth, at times nearly falling off. Our goal is
+                to present diverse arguments on all applicable topics, transcendent of partisan semantics. First and
+                foremost, we are a society of those who enjoy civil discourse and pushing the limits of their intellect.
+                Second, we are a medium for any responsible message. Our publication does not exist to bolster rumors,
+                gossip, or pontificate over national politics. We hope to bring forward dialogue on issues which affect
+                students’ lives and challenge the status quo of ideas. Not through simple debate, but by productive and
+                sympathetic discussion of things sparsely mentioned.
               </p>
-              <h3 className="mobileAboutTitle pt4">
-                Subscribe to the Bruin Review
-              </h3>
+              <h3 className="mobileAboutTitle pt4">Subscribe to the Bruin Review</h3>
               <hr />
               <p>
                 Subscribe for only $50 annually to receive
-                <li>
-                  Quarterly print editions of the Review and News in Review
-                </li>
-                <li>
-                  Quarterly update letters from the Editor in Chief and
-                  President
-                </li>
+                <li>Quarterly print editions of the Review and News in Review</li>
+                <li>Quarterly update letters from the Editor in Chief and President</li>
                 <li> Vinyl Bruin Review stickers </li>
               </p>
               <Fade when={true}>
                 <form>
-                  <div
-                    style={{ width: "100%" }}
-                    className="input flex flex-column"
-                  ></div>
+                  <div style={{ width: '100%' }} className="input flex flex-column"></div>
                   <div className="input flex items-center">
                     <div className="ph1">$</div>
                     <input
                       style={{
-                        margin: "10px 0 10px 0",
-                        background: "#191919",
-                        borderStyle: "none none solid none",
-                        width: "100%",
-                        borderColor: "white",
-                        color: "white",
-                        padding: "5px 8px",
+                        margin: '10px 0 10px 0',
+                        background: '#191919',
+                        borderStyle: 'none none solid none',
+                        width: '100%',
+                        borderColor: 'white',
+                        color: 'white',
+                        padding: '5px 8px',
                       }}
                       type="number"
-                      placeholder={"Enter Amount"}
+                      placeholder={'Enter Amount'}
                       value={this.state.amount}
-                      onChange={(e) =>
-                        this.setState({ amount: e.target.value })
-                      }
+                      onChange={e => this.setState({ amount: e.target.value })}
                     />
                   </div>
-                  {this.state.amount === "45" || this.state.amount === "50" ? (
+                  {this.state.amount === '45' || this.state.amount === '50' ? (
                     <PayPalButton
                       amount={this.state.amount}
-                      style={{ layout: "horizontal" }}
+                      style={{ layout: 'horizontal' }}
                       shippingPreference="GET_FROM_FILE"
                       onSuccess={(details, data) => {
-                        console.log(data);
-                        console.log(details);
-                        const address =
-                          details.purchase_units[0].shipping.address;
-                        base("Subscriber info").create(
+                        console.log(data)
+                        console.log(details)
+                        const address = details.purchase_units[0].shipping.address
+                        base('Subscriber info').create(
                           [
                             {
                               fields: {
                                 Name: `${details.payer.name.given_name} ${details.payer.name.surname}`,
                                 Email: details.payer.email_address,
-                                "Address Line 1": address.address_line_1,
+                                'Address Line 1': address.address_line_1,
                                 City: address.admin_area_2,
                                 State: address.admin_area_1,
-                                "Postal Code": address.postal_code,
-                                "Country Code": address.country_code,
+                                'Postal Code': address.postal_code,
+                                'Country Code': address.country_code,
                               },
                             },
                           ],
                           function (err, records) {
                             if (err) {
-                              console.error(err);
-                              return;
+                              console.error(err)
+                              return
                             }
                             records.forEach(function (record) {
-                              console.log(record.getId());
-                            });
+                              console.log(record.getId())
+                            })
                           }
-                        );
+                        )
 
                         this.setState({
                           showForm: false,
-                        });
-                        alert(
-                          "Transaction completed by " +
-                            details.payer.name.given_name
-                        );
+                        })
+                        alert('Transaction completed by ' + details.payer.name.given_name)
                       }}
                       options={{
-                        clientId:
-                          "AbPnzfLhxHRes39vnomvdFEQoUb9bHT5zqA380DVCXoBYMMFGD-e1SAmNBvfaXJ2NWKBgkAgT1Kc-Yse",
+                        clientId: 'AbPnzfLhxHRes39vnomvdFEQoUb9bHT5zqA380DVCXoBYMMFGD-e1SAmNBvfaXJ2NWKBgkAgT1Kc-Yse',
                       }}
                     />
                   ) : (
@@ -177,8 +145,8 @@ export default class Print extends Component {
             </div>
           </div>
         </div>
-      );
-    else
+      )
+    } else {
       return (
         <div className="flex justify-center home">
           <Header />
@@ -193,6 +161,7 @@ export default class Print extends Component {
           </div>
           <Footer />
         </div>
-      );
+      )
+    }
   }
 }

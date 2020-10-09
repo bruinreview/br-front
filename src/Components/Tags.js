@@ -1,8 +1,8 @@
-import React from "react";
-import "./Card.css";
+import React from 'react'
+import './Card.css'
 
 function Tags(props) {
-  return <p className="metadata">{props.tags.join(" ")}</p>;
+  return <p className="metadata">{props.tags.join(' ')}</p>
 }
 
-export default Tags;
+export default Tags
