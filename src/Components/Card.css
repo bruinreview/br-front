@@ -1,53 +1,51 @@
-.card{
-    margin-bottom:15px;
-    background-color: #191919;
-    border-radius: 8px;
-    text-align: left;
-    padding: 26px;
-    padding-left:30px;
+.card {
+  margin-bottom: 15px;
+  background-color: #191919;
+  border-radius: 8px;
+  text-align: left;
+  padding: 26px;
+  padding-left: 30px;
 }
 
-.title{
-    /* padding-bottom: 15px; */
+.title {
+  /* padding-bottom: 15px; */
 }
-.img{
-    background-size: cover;
-    width:100%;
-    /* padding-top:50%; */
+.img {
+  background-size: cover;
+  width: 100%;
+  /* padding-top:50%; */
+}
+.feature-card {
+  width: 100%;
+}
+.normal-card {
+  width: 100%;
+  margin-right: 20px;
+}
 
-}
-.feature-card{
-    width:100%;
-}
-.normal-card{
-    width:100%;
-    margin-right:20px;
-}
-
-.normal-card:hover{
+.normal-card:hover {
   background-color: #66cef5;
-
 }
 
-.full-enter{
-    height:100%;
-    width:100%;
-    display:flex;
-    justify-content: center;
-    opacity: 0;
+.full-enter {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
 }
-.full-enter-active{
-    width:200%;
-    opacity:1;
-    transition: all 1000ms ease-in-out;
+.full-enter-active {
+  width: 200%;
+  opacity: 1;
+  transition: all 1000ms ease-in-out;
 }
-
 
 .normal-card:hover p {
   color: black !important;
 }
 
-.feature-card:hover{ /*re-do all hover formatting in CSS for faster */
+.feature-card:hover {
+  /*re-do all hover formatting in CSS for faster */
   background-color: #66cef5;
 }
 
@@ -55,12 +53,12 @@
   color: black !important;
 }
 
-.metadata{
+.metadata {
   font-size: 10pt;
   font-family: 'freight-sans';
 }
 
-.article-title{
+.article-title {
   font-weight: bold;
   font-style: italic;
   font-size: 1.2em;
@@ -69,27 +67,23 @@
   font-family: 'freight-text-black';
 }
 
-
-
-
-.normal{
-    width:22%;
-    margin: 0 1% 0 1%;
-    font-family: 'freight-sans';
-    /* background-color: #111; */
+.normal {
+  width: 22%;
+  margin: 0 1% 0 1%;
+  font-family: 'freight-sans';
+  /* background-color: #111; */
 }
 
-#article-title{
+#article-title {
   font-weight: bold;
   font-style: italic;
   font-size: 18pt;
   line-height: 22pt;
   margin: 0;
   font-family: 'freight-text-black';
-
 }
 
-.primary{
+.primary {
   width: 100%;
   height: fit-content;
   overflow: scroll;
@@ -98,7 +92,6 @@
 }
 
 .primary p {
-  font-family: 'freight-text-book';
   font-size: 12pt !important;
   line-height: 1.5;
 }
@@ -107,54 +100,51 @@
   height: fit-content;
 } */
 
-.normal h4{
+.normal h4 {
   margin: 0;
 }
 
-#facts-card h4{
-  font-size:16pt;
+#facts-card h4 {
+  font-size: 16pt;
 }
 
-#facts-card h5{
-  font-size:12pt;
+#facts-card h5 {
+  font-size: 12pt;
   padding-top: 10pt;
   padding-bottom: 0;
-  margin:  5px 0px 5px 0px;
+  margin: 5px 0px 5px 0px;
 }
 
-#facts-card hr{
-  background-color:var(--blue);
+#facts-card hr {
+  background-color: var(--blue);
   height: 1px;
   border: 0;
 }
 
-#facts-card{
+#facts-card {
   margin-bottom: 20px;
-
 }
 
-#date{
+#date {
   font-size: 12pt;
 }
 
-
-
-#info p{
-  padding-bottom:0;
+#info p {
+  padding-bottom: 0;
   padding-top: 0;
-  margin-bottom:0;
+  margin-bottom: 0;
   margin-top: 0;
   font-size: 11pt;
 }
-#author{
-    font-size: 12pt !important;
+#author {
+  font-size: 12pt !important;
 }
 
-#byline{
+#byline {
   font-style: italic;
 }
 
-.button-article{
+.button-article {
   background-color: #b3e7fa;
   color: black;
   text-align: center;
@@ -163,7 +153,7 @@
   border-radius: 8px;
   width: 42%;
   cursor: pointer;
-  font-size:10pt;
+  font-size: 10pt;
   font-family: 'freight-sans';
   border: none;
 }

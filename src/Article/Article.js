@@ -15,6 +15,7 @@ import MobileNav from '../Components/MobileNav'
 import Footer from '../Footer'
 import Header from '../Header'
 import { key, host, url } from '../constants.js'
+import AudioPage from './AudioPage'
 import './Article.css'
 
 const api = new GhostContentAPI({
@@ -137,13 +138,17 @@ export default class Article extends Component {
         <div className="flex justify-center">
           <Header />
           <div className="main flex justify-center">
-            <Zoom delay={delay1 * 50}>
+            <div style={{ width: '72%' }}>
+              <Zoom delay={delay1 * 50}>
+                <AudioPage />
+                {/*
               <div className="primary card">
                 <h3 id="article-title">{this.state.post.title}</h3>
                 {image}
                 <div dangerouslySetInnerHTML={{ __html: this.state.post.html }} />
-              </div>
-            </Zoom>
+              </div> */}
+              </Zoom>
+            </div>
             <div className="normal">
               <Zoom delay={delay2 * 50}>
                 <div className="card" id="facts-card">

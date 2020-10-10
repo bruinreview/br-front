@@ -80,7 +80,7 @@ module.exports = {
     'id-blacklist': ['error', 'any', 'number', 'string', 'boolean', 'Undefined'],
     'id-match': 'error',
     'import/no-deprecated': 'error',
-    'import/order': ['error', {'alphabetize': {'order': 'asc', 'caseInsensitive': false}}],
+    'import/order': ['error', { alphabetize: { order: 'asc', caseInsensitive: false } }],
     'linebreak-style': 'off',
     'max-classes-per-file': 'off',
     'max-len': 'off',
@@ -139,7 +139,7 @@ module.exports = {
         },
       },
     ],
-    'react/jsx-no-bind': 'error',
+    'react/jsx-no-bind': 'off',
     'react/no-find-dom-node': 'off',
     'react/no-string-refs': 'error',
     'react/no-unescaped-entities': 'off', // otherwise <div>How's it going?<div> errors

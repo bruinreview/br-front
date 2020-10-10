@@ -149,11 +149,9 @@ export default class Apply extends Component {
                   <div
                     style={{ position: 'relative' }}
                     onMouseEnter={() => {
-                      console.log(this.state.pptHovered)
                       this.setState({ pptHovered: true })
                     }}
                     onMouseLeave={() => {
-                      console.log(this.state.pptHovered)
                       this.setState({ pptHovered: false })
                     }}
                   >
