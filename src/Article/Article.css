@@ -50,6 +50,7 @@
 
 .card {
   height: fit-content;
+  overflow: hidden;
 }
 
 .normal h4 {

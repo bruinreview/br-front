@@ -4,6 +4,7 @@
   border-radius: 8px;
   text-align: left;
   padding: 26px;
+  overflow: hidden;
   padding-left: 30px;
 }
 
@@ -86,7 +87,7 @@
 .primary {
   width: 100%;
   height: fit-content;
-  overflow: scroll;
+  overflow: hidden;
   margin: 0 1% 0 1%;
   text-align: left;
 }

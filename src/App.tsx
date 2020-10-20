@@ -1,14 +1,14 @@
-import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import React, { ReactElement } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import './App.css'
 import Article from './Article/Article'
 import Apply from './Connect/Apply'
 import Connect from './Connect/Connect'
 import Home from './Home/Home'
 import Print from './Print/Print'
 import './resources/animate.css'
-import './App.css'
 
-function App() {
+function App(): ReactElement {
   return (
     <div className="App" style={{ width: '100%', height: '100%' }}>
       <Switch>

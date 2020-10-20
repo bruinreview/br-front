@@ -13,7 +13,11 @@ module.exports = {
     'plugin:react/recommended',
   ],
   parser: '@typescript-eslint/parser',
-  parserOptions: { project: 'tsconfig.json', sourceType: 'module' },
+  parserOptions: {
+    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+    project: 'tsconfig.json',
+    sourceType: 'module',
+  },
   plugins: [
     '@typescript-eslint',
     '@typescript-eslint/tslint',
@@ -28,7 +32,6 @@ module.exports = {
     '@typescript-eslint/array-type': 'off',
     '@typescript-eslint/await-thenable': 'error',
     '@typescript-eslint/ban-types': 'error',
-    '@typescript-eslint/class-name-casing': 'error',
     '@typescript-eslint/consistent-type-assertions': 'error',
     '@typescript-eslint/consistent-type-definitions': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -139,7 +142,7 @@ module.exports = {
         },
       },
     ],
-    'react/jsx-no-bind': 'off',
+    'react/jsx-no-bind': 'error',
     'react/no-find-dom-node': 'off',
     'react/no-string-refs': 'error',
     'react/no-unescaped-entities': 'off', // otherwise <div>How's it going?<div> errors

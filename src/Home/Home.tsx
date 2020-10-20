@@ -1,15 +1,40 @@
 import GhostContentAPI from '@tryghost/content-api'
-import React, { Component } from 'react'
-import './Home.css'
+import React, { Component, ReactElement } from 'react'
+import { RouteComponentProps } from 'react-router-dom'
+import { GhostAPI, GhostContentAPIOptions } from 'tryghost__content-api'
 import Card from '../Components/Card'
 import MobileNav from '../Components/MobileNav'
 import SearchBar from '../Components/SearchBar'
+import { host } from '../constants.js'
 import Footer from '../Footer'
 import Header from '../Header'
-import { host } from '../constants.js'
+import './Home.css'
 
 class Post {
-  constructor(obj) {
+  id: string
+  title: string
+  type: string
+  category: string
+  date: string
+  author: string
+  html: string
+  slug: string
+  text: string
+  tags: string[]
+  image: string
+  constructor(obj: {
+    id: string
+    title: string
+    type: string
+    category: string
+    date: string
+    author: string
+    html: string
+    slug: string
+    text: string
+    tags: string[]
+    image: string
+  }) {
     this.id = obj.id
     this.title = obj.title
     this.type = obj.type
@@ -24,16 +49,21 @@ class Post {
   }
 }
 
-const date = d => new Date(d.split('T')[0]).toDateString().substring(4)
+const date = (date: string) => new Date(date.split('T')[0]).toDateString().substring(4)
 
-const api = new GhostContentAPI({
-  url: host,
-  key: '876bb28735b6e13c96024fd082',
-  version: 'v3',
-})
-
-export default class Home extends Component {
-  constructor(props) {
+interface IState {
+  posts: Array<Post>
+  currentPosts: Array<Post>
+  filter: string
+  searchVal: string
+  menuOpen: boolean
+  isMobile: boolean
+  isTab: boolean
+  showSearch: boolean
+  searchFocus: boolean
+}
+export default class Home extends Component<RouteComponentProps, IState> {
+  constructor(props: RouteComponentProps) {
     super(props)
     this.state = {
       posts: [],
@@ -48,12 +78,20 @@ export default class Home extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
+    document.addEventListener('keydown', this.handleSearchBar)
     window.addEventListener('resize', this.resize)
+    const options: GhostContentAPIOptions = {
+      url: host,
+      key: '876bb28735b6e13c96024fd082',
+      version: 'v3',
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
+    const api: GhostAPI = new GhostContentAPI(options)
     api.posts
       .browse({
         limit: 'all',
-        include: 'tags,authors',
+        include: ['tags', 'authors'],
         formats: ['plaintext', 'html'],
       })
       .then(postData => {
@@ -63,16 +101,16 @@ export default class Home extends Component {
               ...this.state.posts,
               new Post({
                 id: p.id,
-                title: p.title,
+                title: p.title ?? '',
                 type: 'regular',
                 category: p.featured ? 'feature' : 'normal',
-                date: date(p.published_at),
-                author: p.authors[0].name,
+                date: date(p.published_at ?? ''),
+                author: (p.authors ?? [{ name: 'Unkonwn' }])[0].name ?? 'Unkonwn',
                 slug: p.slug,
-                html: p.html,
-                tags: p.tags.map(u => u.name),
-                text: p.plaintext,
-                image: p.feature_image,
+                html: p.html ?? '',
+                tags: (p.tags ?? []).map(u => u.name ?? ''),
+                text: p.plaintext ?? '',
+                image: p.feature_image ?? '',
               }),
             ],
           })
@@ -83,15 +121,15 @@ export default class Home extends Component {
       })
   }
 
-  handleSearchBar = e => {
-    if (e.key === 'Escape') {
+  handleSearchBar = (event: KeyboardEvent): void => {
+    if (event.key === 'Escape') {
       this.setState({
         showSearch: false,
         searchVal: '',
       })
     }
     if (
-      'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.includes(e.key) &&
+      'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.includes(event.key) &&
       !this.state.showSearch &&
       this.state.searchVal === ''
     ) {
@@ -101,28 +139,22 @@ export default class Home extends Component {
     }
   }
 
-  resize = e => {
+  resize = (): void => {
     // console.log(e.target.outerWidth);
     this.setState({
-      isMobile: e.target.outerWidth < 480,
+      isMobile: window.outerWidth < 480,
       isTab: window.innerWidth >= 480 && window.innerWidth <= 1024,
     })
   }
 
-  componentWillMount() {
-    document.addEventListener('keydown', this.handleSearchBar)
-  }
-
-  filterCards(posts) {
+  filterCards(posts: Array<Post>): Array<React.ReactNode> {
     const p = posts.map(post => (
       <React.Fragment key={post.id}>
-        {' '}
         <Card
           tags={post.tags}
           key={post.id}
           imgURL={post.image}
           id={post.id}
-          key={post.id}
           slug={post.slug}
           transitionToFull={this.transitionToFull}
           title={post.title}
@@ -131,13 +163,13 @@ export default class Home extends Component {
           category={post.category}
           type={`${post.type}Icon`}
           author={post.author}
-        />{' '}
+        />
       </React.Fragment>
     ))
     return p
   }
 
-  generateCards(category, posts, normal = 1) {
+  generateCards(category: string, posts: Array<Post>, normal = 1): Array<React.ReactNode> {
     if (normal === 0) {
       return this.filterCards(posts.filter(post => post.category === category))
     } else if (normal === 1) {
@@ -152,11 +184,12 @@ export default class Home extends Component {
       return this.filterCards(posts)
     }
   }
-  generateMobileCards(posts) {
+
+  generateMobileCards(posts: Array<Post>): Array<React.ReactNode> {
     return this.filterCards(posts)
   }
 
-  handleFilter = e => {
+  handleFilter = (e: { target: HTMLDivElement }): void => {
     if (this.state.filter === e.target.id) {
       this.setState({ filter: '' })
     } else {
@@ -172,9 +205,10 @@ export default class Home extends Component {
     )
     this.setState({ currentPosts: posts })
   }
-  searchChange = e => {
-    this.setState({ searchVal: e.target.value })
-    if (e.target.value === '') {
+
+  searchChange = (event: { target: HTMLInputElement }): void => {
+    this.setState({ searchVal: event.target.value })
+    if (event.target.value === '') {
       this.setState({
         showSearch: false,
       })
@@ -190,16 +224,17 @@ export default class Home extends Component {
     this.setState({ currentPosts: posts })
   }
 
-  transitionToFull = e => {
+  transitionToFull = (URL: string): void => {
     setTimeout(() => {
-      this.props.history.push({ pathname: `/article/${e}` })
+      this.props.history.push({ pathname: `/article/${URL}` })
     }, 500)
   }
 
-  clickSearch = () => {
+  clickSearch = (): void => {
     this.setState({ showSearch: !this.state.showSearch })
   }
-  render() {
+
+  render(): ReactElement {
     if (this.state.posts !== this.state.currentPosts && !this.state.filter && !this.state.searchVal) {
       this.setState({ currentPosts: this.state.posts })
     }
@@ -209,7 +244,6 @@ export default class Home extends Component {
         <div className="flex flex-column items-center  home">
           <MobileNav
             showBar={true}
-            inputRef={this.inputRef}
             searchFocus={this.state.searchFocus}
             searchChange={this.searchChange}
             searchVal={this.state.searchVal}
@@ -228,7 +262,6 @@ export default class Home extends Component {
           <Header clickSearch={this.clickSearch} />
           <div className="main">
             <SearchBar
-              inputRef={this.inputRef}
               searchFocus={this.state.searchFocus}
               searchChange={this.searchChange}
               showSearch={this.state.showSearch}
@@ -249,7 +282,6 @@ export default class Home extends Component {
           <Header clickSearch={this.clickSearch} />
           <div className="main">
             <SearchBar
-              inputRef={this.inputRef}
               searchFocus={this.state.searchFocus}
               searchChange={this.searchChange}
               showSearch={this.state.showSearch}

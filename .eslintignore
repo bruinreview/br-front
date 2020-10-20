@@ -1,3 +1,4 @@
 node_modules/*
 bin
 schema.types.ts
+.eslintrc.js
