@@ -140,7 +140,6 @@ export default class Home extends Component<RouteComponentProps, IState> {
   }
 
   resize = (): void => {
-    // console.log(e.target.outerWidth);
     this.setState({
       isMobile: window.outerWidth < 480,
       isTab: window.innerWidth >= 480 && window.innerWidth <= 1024,
