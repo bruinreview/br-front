@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './App.css'
 import Article from './Article/Article'
-import Apply from './Connect/Apply'
 import Connect from './Connect/Connect'
 import Home from './Home/Home'
 import Print from './Print/Print'
@@ -17,7 +16,7 @@ function App(): ReactElement {
         <Route exact path="/home" component={Home} />
         <Route exact path="/info" component={Connect} />
         <Route exact path="/print" component={Print} />
-        <Route exact path="/apply" component={Apply} />
+        {/* <Route exact path="/apply" component={Apply} /> */}
       </Switch>
     </div>
   )

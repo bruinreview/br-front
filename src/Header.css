@@ -1,7 +1,7 @@
 .vertical-text {
   transform: rotate(270deg);
   transform-origin: 0% 100%;
-  top: 615px;
+  top: 515px;
   left: 7%;
   position: relative;
 }
@@ -20,7 +20,7 @@
   height: 37px;
   background-size: cover;
   position: relative;
-  background-image: url("./resources/icons_search.png");
+  background-image: url('./resources/icons_search.png');
 }
 .line-top {
   height: 1px;
@@ -33,7 +33,7 @@
 .nav {
   color: white;
   font-size: 30px;
-  font-family: "freight-sans";
+  font-family: 'freight-sans';
   font-weight: bold;
 }
 

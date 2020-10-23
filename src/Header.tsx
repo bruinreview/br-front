@@ -12,9 +12,9 @@ export default function Header(props: Props): ReactElement {
       <div className="flex vertical-text">
         <div className="line-bottom"></div>
         <div className="searchIcon" onClick={props.clickSearch} />
-        <Link className="no-underline ph3 nav" to="/apply">
+        {/* <Link className="no-underline ph3 nav" to="/apply">
           apply
-        </Link>
+  </Link>*/}
         <Link className="no-underline ph3 nav" to="/info">
           info
         </Link>
