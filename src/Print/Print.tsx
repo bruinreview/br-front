@@ -73,8 +73,6 @@ export default class Print extends Component<IProp, IState> {
     window.addEventListener('resize', this.resize)
   }
   render(): React.ReactElement {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
-    const handleClick = (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => {}
     if (this.state.isMobile) {
       return (
         <div className="flex items-center flex-column home">
@@ -102,7 +100,11 @@ export default class Print extends Component<IProp, IState> {
       return (
         <div className="flex justify-center home">
           {/* eslint-disable-next-line react/jsx-no-bind */}
-          <Header clickSearch={handleClick} />
+          <Header
+            clickSearch={(e: { target: HTMLDivElement }) => {
+              this.setState({ isMobile: e ? this.state.isMobile : this.state.isMobile })
+            }}
+          />
           <div className="main flex items-start flex-wrap">
             <Zoom>
               {printLinks.map((obj, ind) => (
@@ -113,7 +115,11 @@ export default class Print extends Component<IProp, IState> {
               ))}
             </Zoom>
           </div>
-          <Footer />
+          <Footer
+            handleFilter={(e: { target: HTMLDivElement }) => {
+              this.setState({ isMobile: e ? this.state.isMobile : this.state.isMobile })
+            }}
+          />
         </div>
       )
     }

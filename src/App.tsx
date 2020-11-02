@@ -4,6 +4,7 @@ import './App.css'
 import Article from './Article/Article'
 import Connect from './Connect/Connect'
 import Home from './Home/Home'
+import Internal from './Internal/Internal'
 import Print from './Print/Print'
 import './resources/animate.css'
 
@@ -16,6 +17,7 @@ function App(): ReactElement {
         <Route exact path="/home" component={Home} />
         <Route exact path="/info" component={Connect} />
         <Route exact path="/print" component={Print} />
+        <Route exact path="/internal" component={Internal} />
         {/* <Route exact path="/apply" component={Apply} /> */}
       </Switch>
     </div>

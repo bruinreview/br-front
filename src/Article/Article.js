@@ -12,9 +12,9 @@ import {
   LinkedinIcon,
 } from 'react-share'
 import MobileNav from '../Components/MobileNav'
+import { key, host, url } from '../Constants.js'
 import Footer from '../Footer'
 import Header from '../Header'
-import { key, host, url } from '../constants.js'
 import AudioPage from './AudioPage'
 import './Article.css'
 
@@ -140,12 +140,12 @@ export default class Article extends Component {
           <div className="main flex justify-center">
             <div style={{ width: '72%' }}>
               <Zoom delay={delay1 * 50}>
-                {<AudioPage />}
-              <div className="primary card">
-                <h3 id="article-title">{this.state.post.title}</h3>
-                {image}
-                <div dangerouslySetInnerHTML={{ __html: this.state.post.html }} />
-              </div>
+                {/*<AudioPage />*/}
+                <div className="primary card">
+                  <h3 id="article-title">{this.state.post.title}</h3>
+                  {image}
+                  <div dangerouslySetInnerHTML={{ __html: this.state.post.html }} />
+                </div>
               </Zoom>
             </div>
             <div className="normal">

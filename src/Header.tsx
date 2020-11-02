@@ -3,15 +3,18 @@ import { Link } from 'react-router-dom'
 import './Header.css'
 
 interface Props {
-  clickSearch: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  clickSearch: (e: { target: HTMLDivElement }) => void
 }
 
 export default function Header(props: Props): ReactElement {
+  const search = (event: React.MouseEvent<HTMLDivElement>) => {
+    props.clickSearch({ target: event.target as HTMLDivElement })
+  }
   return (
     <div className="flex justify-start container">
       <div className="flex vertical-text">
         <div className="line-bottom"></div>
-        <div className="searchIcon" onClick={props.clickSearch} />
+        <div className="searchIcon" onClick={search} />
         {/* <Link className="no-underline ph3 nav" to="/apply">
           apply
   </Link>*/}

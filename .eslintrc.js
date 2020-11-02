@@ -142,7 +142,7 @@ module.exports = {
         },
       },
     ],
-    'react/jsx-no-bind': 'error',
+    'react/jsx-no-bind': 'off',
     'react/no-find-dom-node': 'off',
     'react/no-string-refs': 'error',
     'react/no-unescaped-entities': 'off', // otherwise <div>How's it going?<div> errors
