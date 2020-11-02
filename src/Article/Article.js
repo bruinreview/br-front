@@ -140,7 +140,7 @@ export default class Article extends Component {
           <div className="main flex justify-center">
             <div style={{ width: '72%' }}>
               <Zoom delay={delay1 * 50}>
-                {/*<AudioPage /> */}
+                {<AudioPage />}
               <div className="primary card">
                 <h3 id="article-title">{this.state.post.title}</h3>
                 {image}
