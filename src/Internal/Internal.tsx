@@ -14,6 +14,7 @@ export default function Internal(): React.ReactElement {
   const [password, setPassword] = useState('')
   const [file, setFile] = useState<File | null>(null)
   const [img, setImg] = useState<File | null>(null)
+  const [err, setErr] = useState('')
   const changeName = (event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)
   const changePass = (event: React.ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)
   const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,24 +32,68 @@ export default function Internal(): React.ReactElement {
       .get('http://localhost:5000/print')
       .then(data => console.log(data))
       .catch(err => console.error(err))
-  })
-  const upload = () => {
-    // axios.post('http://localhost:5000/uploadPrint')
-    if (file && password === 'BRMemesRKewl!1') {
-      const params: PutObjectRequest = {
+  }, [])
+  const validate = (): boolean => {
+    if (name === '') {
+      setErr('Name field cannot be empty.')
+      return false
+    } else if (password === '') {
+      setErr('Password field cannot be empty')
+      return false
+    } else if (password !== 'BRMemesRKewl!1') {
+      setErr('Password incorrect')
+      return false
+    } else if (file === null || file === undefined) {
+      setErr('Please select pdf file')
+      return false
+    } else if (img === null || img === undefined) {
+      setErr('Please select image photo')
+      return false
+    } else {
+      return true
+    }
+  }
+  const upload = async () => {
+    if (validate() && file && img) {
+      const file_params: PutObjectRequest = {
         Bucket: BUCKET_NAME,
+        ContentDisposition: 'inline',
+        ContentType: file.type,
         Key: file.name, // File name you want to save as in S3
         Body: file,
       }
 
+      const img_params: PutObjectRequest = {
+        Bucket: BUCKET_NAME,
+        ContentDisposition: 'inline',
+        ContentType: img.type,
+        Key: img.name, // File name you want to save as in S3
+        Body: img,
+      }
       // Uploading files to the bucket
-      s3.upload(params, function (err, data) {
-        if (err) {
-          throw err
-        }
-        console.log('File uploaded successfully')
-        console.log(data)
-      })
+      const file_url = (
+        await s3
+          .upload(file_params, function (err) {
+            if (err) {
+              console.log(err)
+              throw err
+            }
+          })
+          .promise()
+      ).Location
+      const img_url = (
+        await s3
+          .upload(img_params, function (err) {
+            if (err) {
+              console.log(err)
+              throw err
+            }
+          })
+          .promise()
+      ).Location
+      console.log(file_url)
+      console.log(img_url)
+      console.log(await axios.post('http://localhost:5000/uploadPrint', { name, img_url, file_url }))
     }
   }
   return (
@@ -66,11 +111,11 @@ export default function Internal(): React.ReactElement {
     >
       <div className="ph4 pv3">
         <div className="pv3">Print edition full name</div>
-        <Input type="text" style={{ width: '300px' }} value={name} onChange={changeName} />
+        <Input type="text" required={true} style={{ width: '300px' }} value={name} onChange={changeName} />
       </div>
       <div className="ph4 pv3">
         <div className="pv3">Password to upload</div>
-        <Input type="password" style={{ width: '300px' }} value={password} onChange={changePass} />
+        <Input type="password" required={true} style={{ width: '300px' }} value={password} onChange={changePass} />
       </div>
       <div className="ph4 pv3">
         <div className="pv3">Upload print edition pdf</div>
@@ -87,16 +132,16 @@ export default function Internal(): React.ReactElement {
         <div className="flex items-center">
           <Button variant="contained" component="label">
             Upload Image
-            <input type="file" accept=".jpg .png" onChange={onImgChange} style={{ display: 'none' }} />
+            <input type="file" accept="image/*" onChange={onImgChange} style={{ display: 'none' }} />
           </Button>
           <div className="ph2">{img?.name}</div>
         </div>
       </div>
       <div className="ph4 pv5">
-        <Button variant="contained" color="primary" component="button">
+        <Button variant="contained" onClick={upload} color="primary" component="button">
           Submit
-          <button onClick={upload} style={{ display: 'none' }} />
         </Button>
+        <div style={{ color: 'red' }}>{err}</div>
       </div>
     </div>
   )

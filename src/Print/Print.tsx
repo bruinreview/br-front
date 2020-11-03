@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { Component } from 'react'
 import Zoom from 'react-reveal/Zoom'
 import MobileNav from '../Components/MobileNav'
@@ -54,6 +55,7 @@ const printLinks = [
 
 interface IState {
   isMobile: boolean
+  printLinks: Array<{ name: string; printurl: string; imageurl: string }>
 }
 interface IProp {}
 export default class Print extends Component<IProp, IState> {
@@ -61,6 +63,7 @@ export default class Print extends Component<IProp, IState> {
     super(props)
     this.state = {
       isMobile: window.innerWidth < 480,
+      printLinks: [],
     }
   }
 
@@ -70,6 +73,18 @@ export default class Print extends Component<IProp, IState> {
     })
   }
   componentDidMount(): void {
+    axios
+      .get('http://localhost:5000/print')
+      .then(data =>
+        this.setState({
+          printLinks: data.data as Array<{
+            name: string
+            printurl: string
+            imageurl: string
+          }>,
+        })
+      )
+      .catch(err => console.error(err))
     window.addEventListener('resize', this.resize)
   }
   render(): React.ReactElement {
@@ -107,12 +122,16 @@ export default class Print extends Component<IProp, IState> {
           />
           <div className="main flex items-start flex-wrap">
             <Zoom>
-              {printLinks.map((obj, ind) => (
-                <a key={ind} rel="noopener noreferrer" target="_blank" href={obj.link} className="posterCard">
-                  <img src={obj.img} className="poster" />
-                  <div className="posterTitle"> {obj.title}</div>
-                </a>
-              ))}
+              {this.state.printLinks.length ? (
+                this.state.printLinks.map((obj, ind) => (
+                  <a key={ind} rel="noopener noreferrer" target="_blank" href={obj.printurl} className="posterCard">
+                    <img src={obj.imageurl} className="poster" />
+                    <div className="posterTitle"> {obj.name}</div>
+                  </a>
+                ))
+              ) : (
+                <div />
+              )}
             </Zoom>
           </div>
           <Footer
