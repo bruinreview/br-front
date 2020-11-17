@@ -12,7 +12,7 @@ import {
   LinkedinIcon,
 } from 'react-share'
 import MobileNav from '../Components/MobileNav'
-import { key, host, url } from '../Constants.js'
+import { key, host, url } from '../Constants'
 import Footer from '../Footer'
 import Header from '../Header'
 import AudioPage from './AudioPage'
