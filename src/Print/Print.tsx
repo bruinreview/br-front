@@ -11,6 +11,7 @@ import p4 from '../resources/print4.png'
 import p5 from '../resources/print5.png'
 import p6 from '../resources/print6.png'
 import p7 from '../resources/print7.png'
+import p8 from '../resources/print8.png'
 import './Print.css'
 
 const printLinks = [
@@ -50,6 +51,11 @@ const printLinks = [
     title: 'News in Review III Spring 2020',
     link:
       'https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/News+in+Review+III+Spring+2020.pdf',
+  },
+  {
+    img: p8,
+    title: 'The Review V Fall 2020',
+    link: 'https://elasticbeanstalk-us-west-1-133954069817.s3-us-west-1.amazonaws.com/bruinReviewFall2020BlueTitle.pdf',
   },
 ]
 
@@ -122,16 +128,36 @@ export default class Print extends Component<IProp, IState> {
           />
           <div className="main flex items-start flex-wrap">
             <Zoom>
-              {this.state.printLinks.length ? (
-                this.state.printLinks.map((obj, ind) => (
-                  <a key={ind} rel="noopener noreferrer" target="_blank" href={obj.printurl} className="posterCard">
-                    <img src={obj.imageurl} className="poster" />
-                    <div className="posterTitle"> {obj.name}</div>
-                  </a>
-                ))
-              ) : (
-                <div />
-              )}
+              {this.state.printLinks.length
+                ? this.state.printLinks.map((obj, ind) => (
+                    <a
+                      key={ind}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      href={obj.printurl}
+                      style={{ width: '30%' }}
+                      className="posterCard"
+                    >
+                      <div
+                        style={{ backgroundImage: `url(${obj.imageurl})`, height: window.innerWidth * 0.32 }}
+                        className="poster"
+                      />
+                      <div className="posterTitle"> {obj.name}</div>
+                    </a>
+                  ))
+                : printLinks.map((obj, ind) => (
+                    <a
+                      key={ind}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      href={obj.link}
+                      style={{ width: '30%' }}
+                      className="posterCard"
+                    >
+                      <img src={obj.img} className="poster" />
+                      <div className="posterTitle"> {obj.title}</div>
+                    </a>
+                  ))}
             </Zoom>
           </div>
           <Footer

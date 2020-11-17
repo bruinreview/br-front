@@ -5,13 +5,12 @@
 
 .posterCard {
   margin: 20px;
-  /* height: 75%; */
-  width: 30%;
   display: flex;
   flex-direction: column;
   color: white;
   text-decoration: none;
 }
+
 .posterCardMobile {
   width: 100%;
   display: flex;
@@ -19,10 +18,13 @@
   color: white;
   text-decoration: none;
 }
+
 .poster {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  width: '100%';
   background-size: cover;
+  height: '100%';
 }
 
 .posterTitle {
