@@ -5,11 +5,11 @@ import { GhostAPI, GhostContentAPIOptions } from 'tryghost__content-api'
 import Card from '../Components/Card'
 import MobileNav from '../Components/MobileNav'
 import SearchBar from '../Components/SearchBar'
-import { host } from '../Constants.js'
 import Footer from '../Footer'
 import Header from '../Header'
 import './Home.css'
 
+const host = 'https://bruinreview.herokuapp.com'
 class Post {
   id: string
   title: string
