@@ -12,12 +12,14 @@ import {
   LinkedinIcon,
 } from 'react-share'
 import MobileNav from '../Components/MobileNav'
-import { key, host, url } from '../Constants'
 import Footer from '../Footer'
 import Header from '../Header'
 import AudioPage from './AudioPage'
 import './Article.css'
 
+const key = '876bb28735b6e13c96024fd082'
+const host = 'https://bruinreview.herokuapp.com'
+const url = 'https://master.d3444to1ugvoot.amplifyapp.com'
 const api = new GhostContentAPI({
   url: host,
   key,
