@@ -4,7 +4,7 @@ import MobileNav from '../Components/MobileNav'
 import Footer from '../Footer'
 import Header from '../Header'
 import './Connect.css'
-import p1 from '../resources/fall.png'
+import p1 from '../resources/winter.png'
 import About from './Components/About'
 
 export default class Apply extends Component {
@@ -59,7 +59,7 @@ export default class Apply extends Component {
             >
               <a
                 target="_blank"
-                href=" https://elasticbeanstalk-us-west-1-133954069817.s3.us-west-1.amazonaws.com/Fall%202020%20BR%20Recruitment%20.pdf"
+                href="https://docs.google.com/presentation/d/1GRMFV1oZE8n2vY8ELYjZdAPlJR_TPTqxxkbIh2YNnVg/edit?usp=sharing"
               >
                 <div
                   style={{
@@ -158,7 +158,7 @@ export default class Apply extends Component {
                     <a
                       target="_blank"
                       style={{ textDecoration: 'none' }}
-                      href=" https://elasticbeanstalk-us-west-1-133954069817.s3.us-west-1.amazonaws.com/Fall%202020%20BR%20Recruitment%20.pdf"
+                      href="https://docs.google.com/presentation/d/1GRMFV1oZE8n2vY8ELYjZdAPlJR_TPTqxxkbIh2YNnVg/edit?usp=sharing"
                     >
                       <div
                         style={{
@@ -191,7 +191,7 @@ export default class Apply extends Component {
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ textDecoration: 'none' }}
-                    href="https://forms.gle/zZmMxBccKw4LNR6Z6"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSc-motHQzqb0aMmQM0Vh5QmXwGK47kF_AIRU0D_SNaAmnzv4Q/viewform?usp=sf_link"
                   >
                     <div
                       onMouseEnter={() => {
