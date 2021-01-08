@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './App.css'
 import Article from './Article/Article'
+import Apply from './Connect/Apply'
 import Connect from './Connect/Connect'
 import Home from './Home/Home'
 import Internal from './Internal/Internal'
@@ -18,7 +19,7 @@ function App(): ReactElement {
         <Route exact path="/info" component={Connect} />
         <Route exact path="/print" component={Print} />
         <Route exact path="/internal" component={Internal} />
-        {/* <Route exact path="/apply" component={Apply} /> */}
+        <Route exact path="/apply" component={Apply} />
       </Switch>
     </div>
   )

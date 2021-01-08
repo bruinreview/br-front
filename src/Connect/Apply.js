@@ -75,7 +75,7 @@ export default class Apply extends Component {
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: 'none' }}
-              href="https://forms.gle/zZmMxBccKw4LNR6Z6"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSc-motHQzqb0aMmQM0Vh5QmXwGK47kF_AIRU0D_SNaAmnzv4Q/viewform?usp=sf_link"
             >
               <div
                 onMouseEnter={() => {
