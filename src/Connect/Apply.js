@@ -36,7 +36,7 @@ export default class Apply extends Component {
             We're a society of independent thinkers who care about bringing discourse back to UCLA and we want you to
             join us. Fall applications are now open! Here are the important dates:
             <li>
-              <a href="https://ucla.zoom.us/j/91084876508">Zoom Info Session </a> Monday January 11th @ 8:30 pm
+              <a href="https://ucla.zoom.us/j/91084876508">Zoom Info Session </a> Monday January 11th @ 7 pm
             </li>
             <li>Applications Due: Wednesday January 13th @ 11:59 pm</li>
             You can check out our complete works under the "Print" tab and read our articles on the home page. These
@@ -228,7 +228,7 @@ export default class Apply extends Component {
                 We're a society of independent thinkers who care about bringing discourse back to UCLA and we want you
                 to join us. Fall applications are now open! Here are the important dates:
                 <li>
-                  <a href="https://ucla.zoom.us/j/91084876508">Zoom Info Session </a> Monday January 11th @ 8:30 pm
+                  <a href="https://ucla.zoom.us/j/91084876508">Zoom Info Session </a> Monday January 11th @ 7 pm
                 </li>
                 <li>Applications Due: Wednesday January 13th @ 11:59 pm</li>
                 You can check out our complete works under the "Print" tab and read our articles on the home page. These
