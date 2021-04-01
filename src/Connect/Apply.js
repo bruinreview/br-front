@@ -35,7 +35,7 @@ export default class Apply extends Component {
             <hr />
             We're a society of independent thinkers who care about bringing discourse back to UCLA and we want you to
             join us. Spring 2021 applications will open shortly! Here are the important dates:
-            <li>Zoom Info Session: Tuesday, April 6, 6:00PM</li>
+            <li>Zoom Info Session: Tuesday, April 6 @ 6:00PM</li>
             <li>Applications Due: Wednesday, April 7 @ 11:59PM</li>
             You can check out our complete works under the "Print" tab and read our articles on the home page. These
             only scrape the surface of what we do here, but they're a great example of how our six departments work
@@ -223,15 +223,13 @@ export default class Apply extends Component {
               <div className="card">
                 <h3 className="title">Welcome to the Bruin Review</h3>
                 <hr />
-                We're a society of independent thinkers who care about bringing discourse back to UCLA and we want you
-                to join us. Fall applications are now open! Here are the important dates:
-                <li>
-                  <a href="https://ucla.zoom.us/j/91084876508">Zoom Info Session </a> Monday January 11th @ 7 pm
-                </li>
-                <li>Applications Due: Wednesday January 13th @ 11:59 pm</li>
-                You can check out our complete works under the "Print" tab and read our articles on the home page. These
-                only scrape the surface of what we do here, but they're a great example of how our six departments work
-                together to promote diversity of thought. Click the pdf to learn more!
+                We're a society of independent thinkers who care about bringing discourse back to UCLA and we want you to
+            join us. Spring 2021 applications will open shortly! Here are the important dates:
+            <li>Zoom Info Session: Tuesday, April 6 @ 6:00PM</li>
+            <li>Applications Due: Wednesday, April 7 @ 11:59PM</li>
+            You can check out our complete works under the "Print" tab and read our articles on the home page. These
+            only scrape the surface of what we do here, but they're a great example of how our six departments work
+            together to promote diversity of thought. Click the pdf to learn more!
               </div>
               <About />
             </div>
