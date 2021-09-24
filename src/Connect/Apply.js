@@ -35,7 +35,7 @@ export default class Apply extends Component {
             <hr />
             We're a society of independent thinkers who care about bringing discourse back to UCLA and we want you to
             join us. Fall 2021 applications are open! Here are the important dates:
-            <li>Info Session: Wednesday, September 29 @ 6:00PM. Location TBD</li>
+            <li>Info Session: Wednesday, September 29 @ 7:00PM. Location TBD</li>
             <li>Applications Due: Friday, October 1 @ 11:59PM</li>
             You can check out our complete works under the "Print" tab and read our articles on the home page. These
             only scrape the surface of what we do here, but they're a great example of how our six departments work
@@ -225,7 +225,7 @@ export default class Apply extends Component {
                 <hr />
                 We're a society of independent thinkers who care about bringing discourse back to UCLA and we want you to
             join us. Fall 2021 applications are open! Here are the important dates:
-            <li>Info Session: Wednesday, September 29 @ 6:00PM. Location TBD</li>
+            <li>Info Session: Wednesday, September 29 @ 7:00PM. Location TBD</li>
             <li>Applications Due: Friday, October 1 @ 11:59PM</li>
             You can check out our complete works under the "Print" tab and read our articles on the home page. These
             only scrape the surface of what we do here, but they're a great example of how our six departments work
