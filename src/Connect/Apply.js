@@ -34,18 +34,16 @@ export default class Apply extends Component {
             <h3 className="mobileAboutTitle">Welcome to the Bruin Review</h3>
             <hr />
             We're a society of independent thinkers who care about bringing discourse back to UCLA and we want you to
-            join us. Spring 2021 applications are open! Here are the important dates:
-            <li>
-              Zoom Info Session: Tuesday, April 6 @ 6:00PM. The meeting will be held at <a href="https://zoom.us/j/95014904675?pwd=VGxDU2NlWkg2SFFFUFo1R0p1dnpJUT09">this link.</a>
-            </li>
-            <li>Applications Due: Wednesday, April 7 @ 11:59PM</li>
+            join us. Fall 2021 applications are open! Here are the important dates:
+            <li>Info Session: Wednesday, September 29 @ 6:00PM. Location TBD</li>
+            <li>Applications Due: Friday, October 1 @ 11:59PM</li>
             You can check out our complete works under the "Print" tab and read our articles on the home page. These
             only scrape the surface of what we do here, but they're a great example of how our six departments work
             together to promote diversity of thought. Click the pdf to learn more!
             <div className="pv4" />
             <h3 className="mobileAboutTitle">Apply to the Bruin Review</h3>
             <hr />
-            <div
+            {/* <div
               style={{ position: 'relative' }}
               onMouseEnter={() => {
                 console.log(this.state.pptHovered)
@@ -69,12 +67,12 @@ export default class Apply extends Component {
                   }}
                 />
               </a>
-            </div>
+            </div> */}
             <a
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: 'none' }}
-              href="https://docs.google.com/forms/d/e/1FAIpQLSc-motHQzqb0aMmQM0Vh5QmXwGK47kF_AIRU0D_SNaAmnzv4Q/viewform?usp=sf_link"
+              href="https://docs.google.com/forms/d/e/1FAIpQLScW0R3qiAKjtSCnKV7IO3hu9dn-tY7XwMKiHrdP9Jh8RrUPIQ/viewform?usp=sf_link"
             >
               <div
                 onMouseEnter={() => {
@@ -145,7 +143,7 @@ export default class Apply extends Component {
                 <div className="card">
                   <h3 className="title">Apply to the Bruin Review</h3>
                   <hr />
-                  <div
+                  {/* <div
                     style={{ position: 'relative' }}
                     onMouseEnter={() => {
                       this.setState({ pptHovered: true })
@@ -185,12 +183,12 @@ export default class Apply extends Component {
                         </div>
                       )}
                     </a>
-                  </div>
+                  </div> */}
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ textDecoration: 'none' }}
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSc-motHQzqb0aMmQM0Vh5QmXwGK47kF_AIRU0D_SNaAmnzv4Q/viewform?usp=sf_link"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScW0R3qiAKjtSCnKV7IO3hu9dn-tY7XwMKiHrdP9Jh8RrUPIQ/viewform?usp=sf_link"
                   >
                     <div
                       onMouseEnter={() => {
@@ -226,11 +224,9 @@ export default class Apply extends Component {
                 <h3 className="title">Welcome to the Bruin Review</h3>
                 <hr />
                 We're a society of independent thinkers who care about bringing discourse back to UCLA and we want you to
-            join us. Spring 2021 applications are open! Here are the important dates:
-            <li>
-              Zoom Info Session: Tuesday, April 6 @ 6:00PM. The meeting will be held at <a href="https://zoom.us/j/95014904675?pwd=VGxDU2NlWkg2SFFFUFo1R0p1dnpJUT09">this link.</a>
-            </li>
-            <li>Applications Due: Wednesday, April 7 @ 11:59PM</li>
+            join us. Fall 2021 applications are open! Here are the important dates:
+            <li>Info Session: Wednesday, September 29 @ 6:00PM. Location TBD</li>
+            <li>Applications Due: Friday, October 1 @ 11:59PM</li>
             You can check out our complete works under the "Print" tab and read our articles on the home page. These
             only scrape the surface of what we do here, but they're a great example of how our six departments work
             together to promote diversity of thought. Click the pdf to learn more!
